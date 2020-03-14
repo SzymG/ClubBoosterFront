@@ -14,10 +14,9 @@ export class HomePage implements OnInit {
   constructor(
     private router: Router,
     public itemService: ItemService
-  ){}
+  ) {}
 
-  ngOnInit(){
-    this.items = this.itemService.getItems();
+  ngOnInit() {
   }
 
 }
