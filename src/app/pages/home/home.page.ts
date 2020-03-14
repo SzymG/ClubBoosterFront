@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ItemService } from '../../services/item.service';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +7,7 @@ import { ItemService } from '../../services/item.service';
 })
 export class HomePage implements OnInit {
 
-  items: Array<any>;
-
-  constructor(
-    private router: Router,
-    public itemService: ItemService
-  ) {}
+  constructor() { }
 
   ngOnInit() {
   }
