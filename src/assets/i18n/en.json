@@ -1,3 +1,6 @@
 {
-
+    "HomePage": {
+        "login": "Login",
+        "register": "Register"
+    }
 }
