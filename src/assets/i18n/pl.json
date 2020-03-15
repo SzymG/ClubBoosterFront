@@ -1,4 +1,13 @@
 {
+    "Common": {
+        "confirm": "Zatwierdź",
+        "cancel": "Anuluj"
+    },
+    "Language": {
+        "chooseLanguage": "Wybierz język aplikacji",
+        "pl": "Polski",
+        "en": "Angielski"
+    },
     "HomePage": {
         "login": "Zaloguj się",
         "register": "Zarejestruj się"

@@ -1,3 +1,4 @@
+
 // App Styles
 // ----------------------------------------------------------------------------
 // Put style rules here that you want to apply to the entire application. These 
@@ -9,5 +10,42 @@
 }
 
 ion-content.side-menu-content {
-    --background: none;
+    --background: #096fae;
+
+    ion-list {
+        background: #096fae;
+    }
+}
+
+.languageSelectAlert {
+    .alert-radio-group button:nth-child(1) .alert-radio-label {
+        display: flex;
+        align-items: center;
+
+        &:before {
+            content: url(/assets/img/pl-flag.png);
+            margin-right: 10px;
+        }
+    }
+
+    .alert-radio-group button:nth-child(2) .alert-radio-label {
+        display: flex;
+        align-items: center;
+
+        &:before {
+            content: url(/assets/img/uk-flag.png);
+            margin-right: 10px;
+        }
+    }
+}
+
+.language-select {
+    cursor: pointer;
+}
+
+.flag-icon-image {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20px;
+    height: 20px;
 }
