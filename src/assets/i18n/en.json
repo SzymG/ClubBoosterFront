@@ -9,6 +9,7 @@
         "en": "English"
     },
     "HomePage": {
+        "pageName": "Home page",
         "login": "Login",
         "register": "Register"
     }

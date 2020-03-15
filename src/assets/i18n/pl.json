@@ -9,7 +9,13 @@
         "en": "Angielski"
     },
     "HomePage": {
+        "pageName": "Strona główna",
         "login": "Zaloguj się",
         "register": "Zarejestruj się"
+    },
+    "RegisterPage": {
+        "pageName": "Rejestracja",
+        "haveAccount": "Masz już konto ?",
+        "login": "Zaloguj się"
     }
 }

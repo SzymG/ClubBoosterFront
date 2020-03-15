@@ -11,7 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { IonicStorageModule } from '@ionic/storage';
-import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 @NgModule({
@@ -28,7 +29,10 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
                 deps: [HttpClient],
             },
         }),
-        HttpClientModule],
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+    ],
     providers: [
         StatusBar,
         SplashScreen,

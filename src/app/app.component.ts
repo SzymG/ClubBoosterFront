@@ -4,7 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
-import {UserService} from './services/user.service';
+import {UserService} from './services/user-service/user.service';
 import {TranslateService} from '@ngx-translate/core';
 import { AlertController } from '@ionic/angular';
 
