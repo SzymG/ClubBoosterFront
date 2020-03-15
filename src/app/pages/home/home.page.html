@@ -4,7 +4,7 @@
 <ion-content>
     <ion-img src="../../assets/img/logo.png" class="logo-image"></ion-img>
     <div class="button-section">
-        <button>{{'HomePage.login' | translate}}</button>
-        <button>{{'HomePage.register' | translate}}</button>
+        <button [routerLink]="['/login']" skipLocationChange="true">{{'HomePage.login' | translate}}</button>
+        <button [routerLink]="['/register']" skipLocationChange="true">{{'HomePage.register' | translate}}</button>
     </div>
 </ion-content>
