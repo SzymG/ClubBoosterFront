@@ -4,4 +4,14 @@
     border-radius: 10px;
     margin: 0.3rem;
     height: calc(100% - 0.6rem);
+
+    ion-item {
+        color: white;
+    }
+}
+
+.register-logo-image {
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
 }

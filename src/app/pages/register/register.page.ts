@@ -26,8 +26,6 @@ export class RegisterPage implements OnInit {
                 ])],
                 confirmPassword: ['', Validators.required]
             }, { validator: CustomValidator.areEqual }),
-            terms: [false, CustomValidator.isTrue],
-            personalData: [false, CustomValidator.isTrue]
         });
     }
 

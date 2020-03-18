@@ -12,5 +12,29 @@
         "pageName": "Home page",
         "login": "Login",
         "register": "Register"
+    },
+    "InputMessage": {
+        "required": "Field is required.",
+        "emailFormat": "E-mail have invalid format",
+        "notEqual": "Field values are not equal",
+        "addressValid": "Fill all address fields",
+        "isTrue": "This field must be checked.",
+        "min": "Minimal value is: ",
+        "max": "Maximum value is: ",
+        "range": "Allowed values are: from {{from}} to {{to}}",
+        "password": "Password should contain at least 8 characters, including one digit and one capital letter",
+        "compareDates": "Start date should be less or equal than end date of event",
+        "integer": "The field should be integer",
+        "boolean": "The field should be 0 or 1"
+    },
+    "RegisterPage": {
+        "pageName": "Registration",
+        "haveAccount": "Already have an account?",
+        "login": "Log in",
+        "register": "Registration",
+        "email": "Email address",
+        "password": "Password",
+        "confirmPassword": "Repeat password",
+        "submit": "Register"
     }
 }

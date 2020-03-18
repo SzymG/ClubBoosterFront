@@ -7,7 +7,7 @@
             <ion-grid>
                 <ion-row>
                     <ion-col>
-                        LOGO
+                        <ion-img src="../../assets/img/logo.png" class="register-logo-image"></ion-img>
                     </ion-col>
                 </ion-row>
                 <ion-row>
@@ -18,7 +18,7 @@
 
                 <ion-row>
                     <ion-col width-100>
-                        <ion-item>
+                        <ion-item color="none">
                             <ion-label position="stacked">{{ "RegisterPage.email" | translate }}</ion-label>
                             <ion-input type="email" inputmode="email" formControlName="email"></ion-input>
                         </ion-item>
@@ -29,7 +29,7 @@
                 <div formGroupName="matchingPassword">
                     <ion-row>
                         <ion-col width-100>
-                            <ion-item>
+                            <ion-item color="none">
                                 <ion-label position="stacked">{{ "RegisterPage.password" | translate }}</ion-label>
                                 <ion-input type="password" formControlName="password"></ion-input>
                             </ion-item>
@@ -38,7 +38,7 @@
                     </ion-row>
                     <ion-row>
                         <ion-col width-100>
-                            <ion-item>
+                            <ion-item color="none">
                                 <ion-label position="stacked">{{ "RegisterPage.confirmPassword" | translate }}</ion-label>
                                 <ion-input type="password" formControlName="confirmPassword"></ion-input>
                             </ion-item>
@@ -60,10 +60,10 @@
 
             <ion-row>
                 <ion-col width-100>
-                    <ion-item lines="none">
-                        <ion-label>{{ "RegisterPage.haveAccount" | translate }}</ion-label>
-                        <ion-button type="button" [routerLink]="['/login']">{{ "RegisterPage.login" | translate }}</ion-button>
-                    </ion-item>
+                    <ion-col class="flex-between-center ">
+                        <ion-label class="p-1">{{ "RegisterPage.haveAccount" | translate }}</ion-label>
+                        <ion-button type="button" [routerLink]="['/login']" skipLocationChange="true">{{ "RegisterPage.login" | translate }}</ion-button>
+                    </ion-col>
                 </ion-col>
             </ion-row>
         </form>

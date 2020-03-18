@@ -13,9 +13,28 @@
         "login": "Zaloguj się",
         "register": "Zarejestruj się"
     },
+    "InputMessage": {
+        "required": "Pole jest wymagane.",
+        "emailFormat": "E-mail ma niepoprawny format.",
+        "notEqual": "Wartości nie są takie same.",
+        "addressValid": "Uzupełnij wszystkie pola adresu.",
+        "isTrue": "To pole musi być zaznaczone.",
+        "min": "Wartość minimalna to: ",
+        "max": "Wartość maksymalna to: ",
+        "range": "Dopuszczalny zakres wartości: od {{from}} do {{to}}",
+        "password": "Hasło powinno zawierać przynajmniej 8 znaków, w tym jedną dużą literę i jedną cyfrę.",
+        "compareDates": "Data rozpoczęcia powinna być mniejsza lub równa od daty kończącej wydarzenie",
+        "integer": "Pole powinno być całkowitoliczbowe",
+        "boolean": "Pole powinno mieć wartośc 0 lub 1"
+    },
     "RegisterPage": {
         "pageName": "Rejestracja",
         "haveAccount": "Masz już konto ?",
-        "login": "Zaloguj się"
+        "login": "Zaloguj się",
+        "register": "Rejestracja",
+        "email": "Adres e-mail",
+        "password": "Hasło",
+        "confirmPassword": "Powtórz hasło",
+        "submit": "Zarejestruj się"
     }
 }
