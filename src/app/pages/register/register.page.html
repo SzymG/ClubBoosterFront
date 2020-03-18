@@ -3,69 +3,71 @@
 
 <ion-content>
     <ion-grid class="register-grid">
-        <form [formGroup]="registerForm" (ngSubmit)="sendForm()">
-            <ion-grid>
-                <ion-row>
-                    <ion-col>
-                        <ion-img src="../../assets/img/logo.png" class="register-logo-image"></ion-img>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col width-100>
-                        <h2>{{ "RegisterPage.register" | translate }}</h2>
-                    </ion-col>
-                </ion-row>
-
-                <ion-row>
-                    <ion-col width-100>
-                        <ion-item color="none">
-                            <ion-label position="stacked">{{ "RegisterPage.email" | translate }}</ion-label>
-                            <ion-input type="email" inputmode="email" formControlName="email"></ion-input>
-                        </ion-item>
-                        <input-message [input]="registerForm.get('email')"></input-message>
-                    </ion-col>
-                </ion-row>
-
-                <div formGroupName="matchingPassword">
+        <div>
+            <form [formGroup]="registerForm" (ngSubmit)="sendForm()">
+                <ion-grid>
                     <ion-row>
-                        <ion-col width-100>
-                            <ion-item color="none">
-                                <ion-label position="stacked">{{ "RegisterPage.password" | translate }}</ion-label>
-                                <ion-input type="password" formControlName="password"></ion-input>
-                            </ion-item>
-                            <input-message [input]="registerForm.get('matchingPassword').get('password')"></input-message>
+                        <ion-col>
+                            <ion-img src="../../assets/img/logo.png" class="register-logo-image"></ion-img>
                         </ion-col>
                     </ion-row>
                     <ion-row>
                         <ion-col width-100>
-                            <ion-item color="none">
-                                <ion-label position="stacked">{{ "RegisterPage.confirmPassword" | translate }}</ion-label>
-                                <ion-input type="password" formControlName="confirmPassword"></ion-input>
-                            </ion-item>
-                            <input-message [input]="registerForm.get('matchingPassword').get('confirmPassword')">
-                            </input-message>
-
-                            <input-message [input]="registerForm.get('matchingPassword')"></input-message>
+                            <h2>{{ "RegisterPage.register" | translate }}</h2>
                         </ion-col>
                     </ion-row>
-                </div>
 
-                <ion-row center>
-                    <ion-col width-100 text-center>
-                        <ion-button expand="block" size="large" type="submit" class="ion-no-margin"
-                                    [disabled]="!registerForm.valid">{{ "RegisterPage.submit" | translate }}</ion-button>
+                    <ion-row>
+                        <ion-col width-100>
+                            <ion-item color="none">
+                                <ion-label position="stacked">{{ "RegisterPage.email" | translate }}</ion-label>
+                                <ion-input type="email" inputmode="email" formControlName="email"></ion-input>
+                            </ion-item>
+                            <input-message [input]="registerForm.get('email')"></input-message>
+                        </ion-col>
+                    </ion-row>
+
+                    <div formGroupName="matchingPassword">
+                        <ion-row>
+                            <ion-col width-100>
+                                <ion-item color="none">
+                                    <ion-label position="stacked">{{ "RegisterPage.password" | translate }}</ion-label>
+                                    <ion-input type="password" formControlName="password"></ion-input>
+                                </ion-item>
+                                <input-message [input]="registerForm.get('matchingPassword').get('password')"></input-message>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col width-100>
+                                <ion-item color="none">
+                                    <ion-label position="stacked">{{ "RegisterPage.confirmPassword" | translate }}</ion-label>
+                                    <ion-input type="password" formControlName="confirmPassword"></ion-input>
+                                </ion-item>
+                                <input-message [input]="registerForm.get('matchingPassword').get('confirmPassword')">
+                                </input-message>
+
+                                <input-message [input]="registerForm.get('matchingPassword')"></input-message>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+
+                    <ion-row center>
+                        <ion-col width-100 text-center>
+                            <ion-button expand="block" size="large" type="submit" class="ion-no-margin"
+                                        [disabled]="!registerForm.valid">{{ "RegisterPage.submit" | translate }}</ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+                <ion-row>
+                    <ion-col width-100>
+                        <ion-col class="flex-between-center ">
+                            <ion-label class="p-1">{{ "RegisterPage.haveAccount" | translate }}</ion-label>
+                            <ion-button type="button" [routerLink]="['/login']" skipLocationChange="true">{{ "RegisterPage.login" | translate }}</ion-button>
+                        </ion-col>
                     </ion-col>
                 </ion-row>
-            </ion-grid>
-
-            <ion-row>
-                <ion-col width-100>
-                    <ion-col class="flex-between-center ">
-                        <ion-label class="p-1">{{ "RegisterPage.haveAccount" | translate }}</ion-label>
-                        <ion-button type="button" [routerLink]="['/login']" skipLocationChange="true">{{ "RegisterPage.login" | translate }}</ion-button>
-                    </ion-col>
-                </ion-col>
-            </ion-row>
-        </form>
+            </form>
+        </div>
     </ion-grid>
 </ion-content>
