@@ -29,12 +29,20 @@
     },
     "RegisterPage": {
         "pageName": "Rejestracja",
-        "haveAccount": "Masz już konto ?",
+        "haveAccount": "Masz już konto?",
         "login": "Zaloguj się",
         "register": "Rejestracja",
         "email": "Adres e-mail",
         "password": "Hasło",
         "confirmPassword": "Powtórz hasło",
         "submit": "Zarejestruj się"
+    },
+    "LoginPage": {
+        "pageName": "Logowanie",
+        "email": "Adres e-mail",
+        "password": "Hasło",
+        "login": "Zaloguj się",
+        "noAccount": "Nie masz konta?",
+        "register": "Zarejestruj się"
     }
 }

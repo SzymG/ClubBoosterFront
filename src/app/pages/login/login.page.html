@@ -1,9 +1,59 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-grid class="login-grid">
+        <ion-row>
+            <ion-col>
+                <ion-img src="../../assets/img/logo.png" class="login-logo-image"></ion-img>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h2>{{"LoginPage.pageName" | translate}}</h2>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <form [formGroup]="login" (ngSubmit)="logForm()">
+                    <ion-row>
+                        <ion-col width-100>
+                            <ion-item color="none">
+                                <ion-label position="stacked">{{'LoginPage.email' | translate}}
+                                    <ion-text color="danger">*</ion-text>
+                                </ion-label>
+                                <ion-input type="text" formControlName="email"></ion-input>
+                            </ion-item>
+                            <input-message [input]="login.get('email')"></input-message>
+                        </ion-col>
+                    </ion-row>
 
+
+                    <ion-row>
+                        <ion-col width-100>
+                            <ion-item color="none">
+                                <ion-label position="stacked">{{'LoginPage.password' | translate}}
+                                    <ion-text color="danger">*</ion-text>
+                                </ion-label>
+                                <ion-input type="password" formControlName="password"></ion-input>
+                            </ion-item>
+                            <input-message [input]="login.get('password')"></input-message>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-button expand="block" size="large" type="submit" class="ion-margin-top"
+                                [disabled]="!login.valid">{{'LoginPage.login' | translate}}</ion-button>
+                </form>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col width-100>
+                <ion-col class="flex-between-center ">
+                    <ion-label class="p-1">{{ "LoginPage.noAccount" | translate }}</ion-label>
+                    <ion-button type="button" [routerLink]="['/register']" skipLocationChange="true">{{ "LoginPage.register" | translate }}</ion-button>
+                </ion-col>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
