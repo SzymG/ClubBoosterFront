@@ -53,7 +53,7 @@
 
                     <ion-row center>
                         <ion-col width-100 text-center>
-                            <ion-button expand="block" size="large" type="submit" class="ion-no-margin"
+                            <ion-button color="dark" expand="block" size="large" type="submit" class="ion-no-margin"
                                         [disabled]="!registerForm.valid">{{ "RegisterPage.submit" | translate }}</ion-button>
                         </ion-col>
                     </ion-row>
@@ -63,7 +63,7 @@
                     <ion-col width-100>
                         <ion-col class="flex-between-center ">
                             <ion-label class="p-1">{{ "RegisterPage.haveAccount" | translate }}</ion-label>
-                            <ion-button type="button" [routerLink]="['/login']" skipLocationChange="true">{{ "RegisterPage.login" | translate }}</ion-button>
+                            <ion-button color="dark" type="button" [routerLink]="['/login']" skipLocationChange="true">{{ "RegisterPage.login" | translate }}</ion-button>
                         </ion-col>
                     </ion-col>
                 </ion-row>

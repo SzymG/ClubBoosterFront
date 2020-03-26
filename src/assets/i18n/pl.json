@@ -1,7 +1,9 @@
 {
     "Common": {
         "confirm": "Zatwierdź",
-        "cancel": "Anuluj"
+        "cancel": "Anuluj",
+        "club": "Klub",
+        "profile": "Profil"
     },
     "Language": {
         "chooseLanguage": "Wybierz język aplikacji",
