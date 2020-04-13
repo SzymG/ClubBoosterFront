@@ -52,20 +52,22 @@
         </ion-toolbar>
     </ion-header>
 
-    <ion-content>
-        <ion-router-outlet id="content"></ion-router-outlet>
-    </ion-content>
-    <ion-footer *ngIf="(userService | isLogged) | async">
-            <ion-tab-bar color="dark" slot="bottom">
-                <ion-tab-button tab="main-view">
-                    <ion-icon name="football"></ion-icon>
-                    <ion-label>{{'Common.club' | translate}}</ion-label>
-                </ion-tab-button>
+    <ion-tabs *ngIf="(userService.isAuthenticated()); else notLoggedIn">
+        <ion-tab-bar id="content" color="dark" slot="bottom">
+            <ion-tab-button tab="club">
+                <ion-icon name="football"></ion-icon>
+                <ion-label>{{'Common.club' | translate}}</ion-label>
+            </ion-tab-button>
 
-                <ion-tab-button tab="dashboard">
-                    <ion-icon name="person"></ion-icon>
-                    <ion-label>{{'Common.profile' | translate}}</ion-label>
-                </ion-tab-button>
-            </ion-tab-bar>
-    </ion-footer>
+            <ion-tab-button tab="profile">
+                <ion-icon name="person"></ion-icon>
+                <ion-label>{{'Common.profile' | translate}}</ion-label>
+            </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs>
+    <ng-template #notLoggedIn>
+        <ion-content>
+            <ion-router-outlet id="content"></ion-router-outlet>
+        </ion-content>
+    </ng-template>
 </ion-app>

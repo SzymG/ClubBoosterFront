@@ -26,9 +26,8 @@ export class LoginPage implements OnInit {
     }
 
     logForm() {
-        this.userService.getToken().then((token) => {
-            console.log(token);
-            this.userService.setToken(!token);
-        });
+        //TODO dodać logowanie na backendzie
+
+        this.userService.login(true);
     }
 }

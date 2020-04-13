@@ -6,7 +6,7 @@ import {UserService} from '../services/user-service/user.service';
 })
 export class IsLoggedPipe implements PipeTransform {
 
-    async transform(userService: UserService) {
-        return await userService.getToken();
+    transform(userService: UserService) {
+        return userService.isAuthenticated();
     }
 }

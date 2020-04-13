@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import {Platform} from '@ionic/angular';
+import {Router} from '@angular/router';
+import {BehaviorSubject} from 'rxjs';
 
 export const LANGUAGE_KEY = 'language';
 export const TOKEN_KEY = 'token';
@@ -8,8 +11,45 @@ export const TOKEN_KEY = 'token';
     providedIn: 'root'
 })
 export class UserService {
+    authenticationState = new BehaviorSubject(true);
 
-    constructor(private readonly storage: Storage) { }
+    constructor(private readonly storage: Storage, private readonly plt: Platform, private readonly router: Router) {
+        this.plt.ready().then(() => {
+            this.checkToken();
+        });
+    }
+
+    login(token) {
+        return this.storage.set(TOKEN_KEY, token).then(() => {
+            this.authenticationState.next(true);
+            this.router.navigate(['profile'], { skipLocationChange: true });
+        });
+    }
+
+    logout() {
+        return this.storage.remove(TOKEN_KEY).then(() => {
+            this.authenticationState.next(false);
+            this.router.navigate(['home']);
+        });
+    }
+
+    isAuthenticated() {
+        console.log(this.authenticationState.value);
+        return this.authenticationState.value;
+    }
+
+    checkToken() {
+        return new Promise(resolve => {
+            this.storage.get(TOKEN_KEY).then(res => {
+                if (res) {
+                    this.authenticationState.next(true);
+                } else {
+                    this.authenticationState.next(false);
+                }
+                resolve(res);
+            });
+        });
+    }
 
     setLanguage(language: string) {
         return this.storage.set(LANGUAGE_KEY, language);
