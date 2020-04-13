@@ -26,6 +26,9 @@ export class LoginPage implements OnInit {
     }
 
     logForm() {
-        this.userService.setToken(true);
+        this.userService.getToken().then((token) => {
+            console.log(token);
+            this.userService.setToken(!token);
+        });
     }
 }

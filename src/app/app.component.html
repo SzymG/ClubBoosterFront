@@ -55,7 +55,7 @@
     <ion-content>
         <ion-router-outlet id="content"></ion-router-outlet>
     </ion-content>
-    <ion-footer><!--*ngIf="userService.getToken()"-->
+    <ion-footer *ngIf="(userService | isLogged) | async">
             <ion-tab-bar color="dark" slot="bottom">
                 <ion-tab-button tab="main-view">
                     <ion-icon name="football"></ion-icon>

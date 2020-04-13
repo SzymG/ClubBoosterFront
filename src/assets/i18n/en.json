@@ -38,5 +38,13 @@
         "password": "Password",
         "confirmPassword": "Repeat password",
         "submit": "Register"
+    },
+    "LoginPage": {
+        "pageName": "Login",
+        "email": "Email address",
+        "password": "Password",
+        "login": "Log in",
+        "noAccount": "No account?",
+        "register": "Register"
     }
 }
