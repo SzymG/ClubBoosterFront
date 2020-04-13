@@ -49,6 +49,15 @@
         "register": "Register"
     },
     "Profile": {
-        "logout": "Logout"
+        "logout": "Logout",
+        "clickToUpload": "Click to upload",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "career": "Career",
+        "dateCreation": "Date creation",
+        "birthYear": "Birth date",
+        "email": "E-mail address",
+        "description": "Description",
+        "save": "Save"
     }
 }

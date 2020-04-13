@@ -20,7 +20,6 @@ export class EventAlertComponent implements OnInit {
     }
 
     async present(event) {
-        console.log(event);
         this.alert = await this.alertController.create({
             header: `${event.extendedProps.description}`,
             message: `${this.formatDate(event.start)}` + (event.end ? ` - ${this.formatDate(event.end)}` : ''),

@@ -49,6 +49,15 @@
         "register": "Zarejestruj się"
     },
     "Profile": {
-        "logout": "Wyloguj"
+        "logout": "Wyloguj",
+        "clickToUpload": "Kliknij, aby dodać",
+        "firstName": "Imię",
+        "lastName": "Nazwisko",
+        "career": "Kariera",
+        "dateCreation": "Data utworzenia",
+        "birthYear": "Data urodzenia",
+        "email": "Adres e-mail",
+        "description": "Opis",
+        "save": "Zapisz"
     }
 }

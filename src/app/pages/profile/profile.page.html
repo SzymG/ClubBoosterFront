@@ -2,20 +2,112 @@
 </ion-header>
 
 <ion-content>
-    <ion-grid>
+    <ion-grid class="profile-grid">
         <ion-row>
             <full-calendar
-                    #calendar
-                    defaultView="dayGridMonth"
-                    locale="{{translateService.currentLang}}"
-                    [locales]="locales"
-                    [plugins]="calendarPlugins"
-                    [events]="profileEvents"
-                    [displayEventTime]="false"
-                    (eventClick)="eventClickHandler($event)"
+                #calendar
+                defaultView="dayGridMonth"
+                locale="{{translateService.currentLang}}"
+                [locales]="locales"
+                [plugins]="calendarPlugins"
+                [events]="profileEvents"
+                [displayEventTime]="false"
+                (eventClick)="eventClickHandler($event)"
             >
             </full-calendar>
         </ion-row>
+
+        <ion-row>
+            <form #form [formGroup]="profileForm" (ngSubmit)="sendForm()"
+                  enctype="multipart/form-data">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size="12">
+                            <ion-row class="ion-justify-content-center">
+                                <ion-col size="12" class="photo-container ion-no-padding">
+                                    <div class="photo-upload-overlay" (click)="triggerUpload()">
+                                        <ion-icon name="camera"></ion-icon>
+                                        {{ 'Profile.clickToUpload' | translate }}
+                                    </div>
+                                    <img [src]="imageUrl || '/assets/img/user.png'"/>
+                                </ion-col>
+                            </ion-row>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-grid class="profile-data-grid">
+                        <ion-row>
+                            <ion-input type="text" hidden formControlName="id"></ion-input>
+                            <ion-col size="12">
+                                <ion-item color="none">
+                                    <ion-label position="stacked">{{ "Profile.firstName" | translate }}</ion-label>
+                                    <ion-input type="text" formControlName="firstName" nullValue></ion-input>
+                                </ion-item>
+                                <input-message [input]="profileForm.get('firstName')"></input-message>
+                            </ion-col>
+                        </ion-row>
+
+                        <ion-row>
+                            <ion-col class="my-input" sizeXs="12" sizeSm="6" sizeLg="3">
+                                <ion-item color="none">
+                                    <ion-label position="stacked">{{ "Profile.lastName" | translate }}</ion-label>
+                                    <ion-input type="text" formControlName="lastName" nullValue></ion-input>
+                                    <input-message [input]="profileForm.get('lastName')"></input-message>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col class="my-input" sizeXs="12" sizeSm="6" sizeLg="3">
+                                <ion-item color="none">
+                                    <ion-label position="stacked">{{ "Profile.birthYear" | translate }}</ion-label>
+                                    <ion-input type="date" formControlName="birthYear" nullValue></ion-input>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col class="my-input" sizeXs="12" sizeSm="6" sizeLg="3">
+                                <ion-item color="none">
+                                    <ion-label position="stacked">{{ "Profile.dateCreation" | translate }}</ion-label>
+                                    <ion-input type="text" formControlName="dateCreation"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col class="my-input" sizeXs="12" sizeSm="6" sizeLg="4">
+                                <ion-item color="none">
+                                    <ion-label position="stacked">{{ "Profile.email" | translate }}</ion-label>
+                                    <ion-input type="text" formControlName="email"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col class="my-input" sizeXs="12" sizeSm="6" sizeLg="3">
+                                <ion-item color="none">
+                                    <ion-label position="stacked">{{ "Profile.description" | translate }}</ion-label>
+                                    <ion-textarea formControlName="description" rows="6" nullValue></ion-textarea>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col class="my-input" sizeXs="12" sizeSm="6" sizeLg="3">
+                                <ion-item color="none">
+                                    <ion-label position="stacked">{{ "Profile.career" | translate }}</ion-label>
+                                    <ion-textarea type="text" formControlName="career" rows="6" nullValue></ion-textarea>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <ion-button expand="block" size="large" type="submit" class="ion-no-margin">
+                                    {{ "Profile.save" | translate }}
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+
+                    <ion-row>
+                        <ion-col>
+                            <input hidden #imageInput type="file" (change)="onFileChanged($event)">
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </form>
+        </ion-row>
+
         <ion-row>
             <ion-col size="12">
                 <ion-button color="dark" expand="block" size="large" type="submit" class="ion-margin-top" (click)="logout()">
