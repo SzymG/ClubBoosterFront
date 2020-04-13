@@ -89,3 +89,30 @@ ion-content.side-menu-content {
     --padding-bottom: 1rem;
     height: auto;
 }
+
+full-calendar {
+    background: #ffffffee;
+    padding: 5px;
+    border-radius: 4px;
+
+    .fc-toolbar {
+        h2 {
+            font-size: 20px;
+            text-transform: capitalize;
+        }
+    }
+    
+    .fc-event-container {
+        .fc-content {
+            text-align: center;
+        }
+    }
+
+    .fc-view-container {
+        .fc-widget-content {
+            .fc-scroller {
+                height: auto !important;
+            }
+        }
+    }
+}

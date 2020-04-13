@@ -3,7 +3,8 @@
         "confirm": "Confirm",
         "cancel": "Cancel",
         "club": "Club",
-        "profile": "Profile"
+        "profile": "Profile",
+        "go": "go"
     },
     "Language": {
         "chooseLanguage": "Choose app language",
@@ -46,5 +47,8 @@
         "login": "Log in",
         "noAccount": "No account?",
         "register": "Register"
+    },
+    "Profile": {
+        "logout": "Logout"
     }
 }

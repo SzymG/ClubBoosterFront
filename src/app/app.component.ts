@@ -7,7 +7,7 @@ import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
 import {UserService} from './services/user-service/user.service';
 import {TranslateService} from '@ngx-translate/core';
 import { AlertController } from '@ionic/angular';
-
+import dayGridPlugin from '@fullcalendar/daygrid';
 
 @Component({
     selector: 'app-root',
