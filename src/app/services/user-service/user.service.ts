@@ -34,7 +34,6 @@ export class UserService {
     }
 
     isAuthenticated() {
-        console.log(this.authenticationState.value);
         return this.authenticationState.value;
     }
 
