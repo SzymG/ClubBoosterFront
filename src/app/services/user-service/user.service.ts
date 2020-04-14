@@ -14,9 +14,7 @@ export class UserService {
     authenticationState = new BehaviorSubject(true);
 
     constructor(private readonly storage: Storage, private readonly plt: Platform, private readonly router: Router) {
-        this.plt.ready().then(() => {
-            this.checkToken();
-        });
+        this.checkToken();
     }
 
     login(token) {
@@ -40,6 +38,7 @@ export class UserService {
     checkToken() {
         return new Promise(resolve => {
             this.storage.get(TOKEN_KEY).then(res => {
+                console.log(res);
                 if (res) {
                     this.authenticationState.next(true);
                 } else {

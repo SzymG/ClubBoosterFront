@@ -27,7 +27,9 @@ export class AppComponent {
         private translate: TranslateService,
         private alertController: AlertController,
     ) {
-        this.initializeApp();
+        this.userService.checkToken().then(() => {
+            this.initializeApp();
+        });
     }
 
     async initializeApp() {
