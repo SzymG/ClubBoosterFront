@@ -33,6 +33,6 @@ export class RegisterPage implements OnInit {
     }
 
     sendForm() {
-
+        //  TODO rejestracja na backendzie
     }
 }

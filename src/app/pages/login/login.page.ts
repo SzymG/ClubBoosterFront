@@ -13,7 +13,7 @@ export class LoginPage implements OnInit {
 
     constructor(
         private formBuilder: FormBuilder,
-        private userService: UserService
+        private userService: UserService,
     ) {
         this.login = this.formBuilder.group({
             email: ['', Validators.compose([Validators.required, CustomValidator.isValidMailFormat])],
@@ -27,7 +27,23 @@ export class LoginPage implements OnInit {
 
     logForm() {
         //TODO dodać logowanie na backendzie
-
+        const response = {
+            userId: 7,
+            clubs: [
+                {
+                    clubId: 1,
+                    name: 'Polskie Zimnioki',
+                    photoUrl: '/assets/img/club.png'
+                },
+                {
+                    clubId: 2,
+                    name: 'Huragan Kaźmirz',
+                    photoUrl: '/assets/img/club.png'
+                }
+            ],
+            photoUrl: '/assets/img/user.png'
+        };
+        this.userService.setData(response);
         this.userService.login(true);
     }
 }

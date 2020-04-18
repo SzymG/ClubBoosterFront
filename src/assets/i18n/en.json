@@ -4,7 +4,8 @@
         "cancel": "Cancel",
         "club": "Club",
         "profile": "Profile",
-        "go": "go"
+        "go": "go",
+        "logout": "Logout"
     },
     "Language": {
         "chooseLanguage": "Choose app language",

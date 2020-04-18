@@ -1,9 +1,36 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>club</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>club</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-grid class="login-grid">
+        <div>
+            <ion-row>
+                <ion-col>
+                    <ion-img src="../../assets/img/logo_small.png" class="login-logo-image"></ion-img>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="user && user.clubs.length">
+                <ion-col>
+                    <h2>{{"ClubPage.clubs" | translate}}</h2>
+                </ion-col>
+                <ion-col size="12" *ngFor="let club of user.clubs">
+                    <club-item [club]="club"></club-item>
+                </ion-col>
+            </ion-row>
 
+            <ion-row>
+                <ion-col size="12">
+                    <ion-button color="dark" type="button" expand="block" class="padding-button"
+                                (click)="showJoinModal()">{{ "ClubPage.joinClub" | translate }}</ion-button>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-button color="dark" type="button" expand="block" class="padding-button"
+                                [routerLink]="['/#']" skipLocationChange="true">{{ "ClubPage.createClub" | translate }}</ion-button>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
 </ion-content>

@@ -4,7 +4,8 @@
         "cancel": "Anuluj",
         "club": "Klub",
         "profile": "Profil",
-        "go": "Przejdź"
+        "go": "Przejdź",
+        "logout": "Wyloguj się"
     },
     "Language": {
         "chooseLanguage": "Wybierz język aplikacji",
@@ -59,5 +60,10 @@
         "email": "Adres e-mail",
         "description": "Opis",
         "save": "Zapisz"
+    },
+    "ClubPage": {
+        "clubs": "Kluby",
+        "joinClub": "Dołącz do klubu",
+        "createClub": "Stwórz własny klub"
     }
 }

@@ -26,7 +26,6 @@ const routes: Routes = [
         loadChildren: './pages/club/club.module#ClubPageModule',
         canActivate: [AuthGuardService]
     },
-
 ];
 
 @NgModule({

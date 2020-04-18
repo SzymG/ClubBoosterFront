@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {UserService, UserStateModel} from '../../services/user-service/user.service';
 
 @Component({
-  selector: 'app-club',
-  templateUrl: './club.page.html',
-  styleUrls: ['./club.page.scss'],
+    selector: 'app-club',
+    templateUrl: './club.page.html',
+    styleUrls: ['./club.page.scss'],
 })
-export class ClubPage implements OnInit {
+export class ClubPage {
+    user: UserStateModel;
 
-  constructor() { }
+    constructor(
+        private readonly userService: UserService
+    ) {
+    }
 
-  ngOnInit() {
-  }
+    async ionViewWillEnter() {
+        this.user = await this.userService.getData();
+        console.log(this.user);
+    }
 
+    showJoinModal() {
+        //TODO - pokazać modal
+    }
 }

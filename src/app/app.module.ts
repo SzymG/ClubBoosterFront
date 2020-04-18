@@ -15,7 +15,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { IsLoggedPipe } from './pipes/is-logged.pipe';
-import {UserService} from './services/user-service/user.service';
 
 @NgModule({
     declarations: [AppComponent, IsLoggedPipe],

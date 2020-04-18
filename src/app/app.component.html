@@ -33,6 +33,12 @@
                     <ion-icon name="warning" slot="start"></ion-icon>
                     <ion-label>Spam</ion-label>
                 </ion-item>
+                <ion-menu-toggle *ngIf="userService.isAuthenticated()">
+                    <ion-item color="dark" (click)="userService.logout()">
+                        <ion-icon name="log-out" slot="start"></ion-icon>
+                        <ion-label>{{"Common.logout" | translate}}</ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
             </ion-list>
         </ion-content>
     </ion-menu>

@@ -54,7 +54,8 @@
     "rxjs": "^6.5.4",
     "rxjs-compat": "^6.5.4",
     "tslib": "^1.11.1",
-    "zone.js": "~0.8.29"
+    "zone.js": "~0.8.29",
+    "@ngxs/store": "latest"
   },
   "devDependencies": {
     "@angular-devkit/architect": "~0.13.8",

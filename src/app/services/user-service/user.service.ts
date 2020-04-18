@@ -6,14 +6,32 @@ import {BehaviorSubject} from 'rxjs';
 
 export const LANGUAGE_KEY = 'language';
 export const TOKEN_KEY = 'token';
+export const PHOTO_URL_KEY = 'photoUrl';
+export const USER_CLUBS_KEY = 'clubs';
+
+export interface UserStateModel {
+    userId: number;
+    clubs: ClubStateModel[];
+    photoUrl: string;
+}
+
+export interface ClubStateModel {
+    clubId: number;
+    name: string;
+    photoUrl: string;
+}
 
 @Injectable({
     providedIn: 'root'
 })
 export class UserService {
     authenticationState = new BehaviorSubject(true);
+    userKeys = ['userId', 'clubs', 'photoUrl'];
 
-    constructor(private readonly storage: Storage, private readonly plt: Platform, private readonly router: Router) {
+    constructor(
+        private readonly storage: Storage,
+        private readonly plt: Platform,
+        private readonly router: Router) {
         this.checkToken();
     }
 
@@ -38,7 +56,6 @@ export class UserService {
     checkToken() {
         return new Promise(resolve => {
             this.storage.get(TOKEN_KEY).then(res => {
-                console.log(res);
                 if (res) {
                     this.authenticationState.next(true);
                 } else {
@@ -61,7 +78,28 @@ export class UserService {
         return this.storage.set(TOKEN_KEY, token);
     }
 
-    getToken() {
-        return this.storage.get(TOKEN_KEY);
+    async getToken() {
+        return await this.storage.get(TOKEN_KEY);
+    }
+
+    getPhotoUrl() {
+        return this.storage.get(PHOTO_URL_KEY);
+    }
+
+    setData(data: UserStateModel) {
+        console.log(data);
+        for(const key in data) {
+            this.storage.set(key, data[key]);
+        }
+    }
+
+    async getData(): Promise<UserStateModel> {
+        const res = {};
+
+        for(const key of this.userKeys) {
+            res[key] = await this.storage.get(key);
+        }
+
+        return res as UserStateModel;
     }
 }
