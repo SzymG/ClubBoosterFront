@@ -11,7 +11,7 @@ import {RouterModule} from '@angular/router';
     declarations: [
         InputMessageComponent,
         EventAlertComponent,
-        ClubItemComponent
+        ClubItemComponent,
     ],
     imports: [
         CommonModule,
@@ -22,7 +22,7 @@ import {RouterModule} from '@angular/router';
     exports: [
         InputMessageComponent,
         EventAlertComponent,
-        ClubItemComponent
+        ClubItemComponent,
     ]
 })
 export class ComponentsModule { }

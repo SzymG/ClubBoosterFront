@@ -101,6 +101,10 @@ full-calendar {
             font-size: 20px;
             text-transform: capitalize;
         }
+
+        .fc-right {
+            display: flex;
+        }
     }
     
     .fc-event-container {

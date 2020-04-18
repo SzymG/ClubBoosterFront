@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {UserService, UserStateModel} from '../../services/user-service/user.service';
+import {ClubJoinComponent} from './club-join/club-join.component';
+import {ModalController} from '@ionic/angular';
 
 @Component({
     selector: 'app-club',
@@ -10,7 +12,8 @@ export class ClubPage {
     user: UserStateModel;
 
     constructor(
-        private readonly userService: UserService
+        private readonly userService: UserService,
+        private readonly modalController: ModalController
     ) {
     }
 
@@ -19,7 +22,10 @@ export class ClubPage {
         console.log(this.user);
     }
 
-    showJoinModal() {
-        //TODO - pokazać modal
+    async showJoinModal() {
+        const modal = await this.modalController.create({
+            component: ClubJoinComponent
+        });
+        return await modal.present();
     }
 }
