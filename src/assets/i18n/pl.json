@@ -64,6 +64,8 @@
     "ClubPage": {
         "clubs": "Kluby",
         "joinClub": "Dołącz do klubu",
-        "createClub": "Stwórz własny klub"
+        "createClub": "Stwórz własny klub",
+        "token": "Wpisz kod klubu",
+        "join": "Dołącz"
     }
 }

@@ -17,6 +17,18 @@ ion-content.side-menu-content {
     }
 }
 
+ion-toolbar {
+    ion-icon {
+        color: white;
+        font-size: 1.5rem;
+        padding: 0 0.5rem;
+    }
+}
+
+.toast-component {
+    transform: translateY(-65px) !important;
+}
+
 .languageSelectAlert {
     .alert-wrapper {
         background: #222428;

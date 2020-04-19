@@ -1,13 +1,13 @@
 .club-join-grid {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     background: #2e3b42dd;
     color: white;
     border-radius: 10px;
     margin: 0.3rem;
     min-height: calc(100% - 0.6rem);
     height: auto;
-
 
     ion-item {
         color: white;

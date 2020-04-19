@@ -1,23 +1,37 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-icon name="arrow-back" (click)="closeModal()"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
 <ion-content>
     <ion-grid class="club-join-grid">
         <ion-row>
-            <ion-col>
+            <ion-col size="12">
                 <ion-img src="../../assets/img/logo_small.png" class="login-logo-image"></ion-img>
             </ion-col>
         </ion-row>
         <ion-row>
-<!--            TODO zamien to na formularz-->
-            <ion-col width-100>
-                <ion-item color="none">
-                    <ion-label position="stacked">{{'LoginPage.email' | translate}}
-                        <ion-text color="danger">*</ion-text>
-                    </ion-label>
-                    <ion-input type="text"></ion-input>
-                </ion-item>
-                <input-message [input]="null"></input-message>
+            <ion-col>
+                <form [formGroup]="joinClub" (ngSubmit)="joinForm()">
+                    <ion-row>
+                        <ion-col>
+                            <ion-item color="none">
+                                <ion-label position="stacked">{{'ClubPage.token' | translate}}
+                                    <ion-text color="danger">*</ion-text>
+                                </ion-label>
+                                <ion-input type="text" formControlName="token"></ion-input>
+                            </ion-item>
+                            <input-message [input]="joinClub.get('token')"></input-message>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-button color="dark" expand="block" size="large" type="submit" class="ion-margin-top"
+                                [disabled]="!joinClub.valid">{{'ClubPage.join' | translate}}</ion-button>
+                </form>
             </ion-col>
-            <ion-button color="dark" expand="block" size="large" type="submit" class="ion-margin-top"
-                        [disabled]="null">{{'ClubPage.joinClubText' | translate}}</ion-button>
         </ion-row>
     </ion-grid>
 </ion-content>
