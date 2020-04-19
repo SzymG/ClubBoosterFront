@@ -1,0 +1,74 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-icon name="arrow-back" (click)="closeModal()"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="club-create-grid">
+        <ion-row>
+            <ion-col size="12">
+                <ion-img src="../../assets/img/logo_small.png" class="login-logo-image"></ion-img>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h2>{{"ClubPage.createClub" | translate}}</h2>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <form [formGroup]="createClub" (ngSubmit)="createForm()">
+                    <ion-row>
+                        <ion-col>
+                            <ion-item color="none">
+                                <ion-label position="stacked">{{'ClubPage.name' | translate}}
+                                    <ion-text color="danger">*</ion-text>
+                                </ion-label>
+                                <ion-input type="text" formControlName="name"></ion-input>
+                            </ion-item>
+                            <input-message [input]="createClub.get('name')"></input-message>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col size="12">
+                            <ion-row class="ion-justify-content-center">
+                                <ion-col size="12" class="photo-container ion-no-padding">
+                                    <div class="photo-upload-overlay" (click)="triggerUpload()">
+                                        <ion-icon name="camera"></ion-icon>
+                                        {{ 'ClubPage.clickToUpload' | translate }}
+                                    </div>
+                                    <img [src]="imageUrl || '/assets/img/club.png'"/>
+                                </ion-col>
+                            </ion-row>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col>
+                            <ion-item color="none">
+                                <ion-label position="stacked">{{'ClubPage.description' | translate}}
+                                    <ion-text color="danger">*</ion-text>
+                                </ion-label>
+                                <ion-textarea type="text" formControlName="description"></ion-textarea>
+                            </ion-item>
+                            <input-message [input]="createClub.get('description')"></input-message>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-button color="dark" expand="block" size="large" type="submit" class="ion-margin-top"
+                                [disabled]="!createClub.valid">{{'ClubPage.create' | translate}}</ion-button>
+                </form>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <input hidden #imageInput type="file" (change)="onFileChanged($event)">
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

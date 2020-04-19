@@ -66,6 +66,11 @@
         "joinClub": "Dołącz do klubu",
         "createClub": "Stwórz własny klub",
         "token": "Wpisz kod klubu",
-        "join": "Dołącz"
+        "join": "Dołącz",
+        "create": "Stwórz",
+        "name": "Nazwa klubu",
+        "photo": "Zdjęcie",
+        "description": "Opis klubu",
+        "clickToUpload": "Kliknij, aby dodać"
     }
 }

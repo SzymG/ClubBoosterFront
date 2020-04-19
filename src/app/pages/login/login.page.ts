@@ -33,12 +33,14 @@ export class LoginPage implements OnInit {
                 {
                     clubId: 1,
                     name: 'Polskie Zimnioki',
-                    photoUrl: '/assets/img/club.png'
+                    photoUrl: '/assets/img/club.png',
+                    description: 'Klub zrodzony z zimnioków'
                 },
                 {
                     clubId: 2,
                     name: 'Huragan Kaźmirz',
-                    photoUrl: '/assets/img/club.png'
+                    photoUrl: '/assets/img/club.png',
+                    description: 'Weterani B klasy'
                 }
             ],
             photoUrl: '/assets/img/user.png'

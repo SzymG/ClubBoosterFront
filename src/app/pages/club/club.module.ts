@@ -9,6 +9,7 @@ import {ClubPage} from './club.page';
 import {TranslateModule} from '@ngx-translate/core';
 import {ComponentsModule} from '../../components/components.module';
 import {ClubJoinComponent} from './club-join/club-join.component';
+import {ClubCreateComponent} from './club-create/club-create.component';
 
 const routes: Routes = [
     {
@@ -27,9 +28,10 @@ const routes: Routes = [
         ComponentsModule,
         ReactiveFormsModule
     ],
-    declarations: [ClubPage, ClubJoinComponent],
+    declarations: [ClubPage, ClubJoinComponent, ClubCreateComponent],
     entryComponents: [
-        ClubJoinComponent
+        ClubJoinComponent,
+        ClubCreateComponent
     ],
 })
 export class ClubPageModule {

@@ -19,6 +19,7 @@ export interface ClubStateModel {
     clubId: number;
     name: string;
     photoUrl: string;
+    description: string;
 }
 
 @Injectable({

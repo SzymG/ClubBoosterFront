@@ -6,7 +6,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {FullCalendarComponent} from '@fullcalendar/angular';
 import {EventAlertComponent} from '../../components/event-alert/event-alert.component';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {CustomValidator} from '../../components/custom-validator/custom-validator';
+import {ToastService} from '../../services/toast/toast.service';
 
 @Component({
     selector: 'app-profile',
@@ -16,9 +16,8 @@ import {CustomValidator} from '../../components/custom-validator/custom-validato
 export class ProfilePage implements OnInit {
 
     @ViewChild('calendar') calendarComponent: FullCalendarComponent;
-    @ViewChild('imageInput')
+    @ViewChild('imageInput') imageInput;
 
-    imageInput;
     calendarPlugins = [dayGridPlugin];
     locales = [plLocale];
     // TODO pobieranie eventów do profilu z backendu
@@ -60,6 +59,7 @@ export class ProfilePage implements OnInit {
         private readonly translateService: TranslateService,
         private readonly eventAlert: EventAlertComponent,
         private readonly formBuilder: FormBuilder,
+        private readonly toastService: ToastService,
     ) {
         this.profileForm = this.formBuilder.group({
             id: ['', null],
@@ -70,6 +70,7 @@ export class ProfilePage implements OnInit {
             dateCreation: [{value: null, disabled: true}, null],
             birthYear: ['', null],
             description: ['', null],
+            photoUrl: [''],
         });
     }
 
@@ -83,7 +84,8 @@ export class ProfilePage implements OnInit {
             dateCreation: '2020-02-24',
             email: 'janusz.pilkorz@gmail.com',
             description: 'Jestem sobie Janusz piłkorz',
-            career: 'Byłem w Barcelonie na 50%. Ja chciałem, oni nie.'
+            career: 'Byłem w Barcelonie na 50%. Ja chciałem, oni nie.',
+            photoUrl: null
         };
 
         this.profileForm.setValue(this.profile);
@@ -98,7 +100,9 @@ export class ProfilePage implements OnInit {
     }
 
     async sendForm() {
-        console.log('send');
+        this.profileForm.controls.photoUrl.setValue(this.imageUrl);
+        console.log(this.profileForm.value);
+        this.toastService.presentToast('Pomyślnie zaktualizowano profil');
         // if(this.profileForm.valid) {
         //     const profile = this.profileForm;
         //     this.profileService.update(profile, this.image, this.selectedKeywords).then(

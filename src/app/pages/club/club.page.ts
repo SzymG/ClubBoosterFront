@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {UserService, UserStateModel} from '../../services/user-service/user.service';
 import {ClubJoinComponent} from './club-join/club-join.component';
 import {ModalController} from '@ionic/angular';
+import {ClubCreateComponent} from './club-create/club-create.component';
 
 @Component({
     selector: 'app-club',
@@ -25,6 +26,13 @@ export class ClubPage {
     async showJoinModal() {
         const modal = await this.modalController.create({
             component: ClubJoinComponent
+        });
+        return await modal.present();
+    }
+
+    async showCreateModal() {
+        const modal = await this.modalController.create({
+            component: ClubCreateComponent
         });
         return await modal.present();
     }

@@ -1,0 +1,45 @@
+.club-create-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #2e3b42dd;
+    color: white;
+    border-radius: 10px;
+    margin: 0.3rem;
+    min-height: calc(100% - 0.6rem);
+    height: auto;
+
+    ion-item {
+        color: white;
+    }
+
+    .login-logo-image {
+        width: 15%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .photo-container {
+        overflow: hidden;
+        position: relative;
+        height: calc(100vw - 1rem);
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .photo-upload-overlay {
+        width: 100%;
+        background: #2e3b42dd;
+        padding: 25px;
+        color: #ffffff;
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+    }
+}
