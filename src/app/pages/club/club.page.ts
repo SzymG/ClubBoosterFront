@@ -19,8 +19,7 @@ export class ClubPage {
     }
 
     async ionViewWillEnter() {
-        this.user = await this.userService.getData();
-        console.log(this.user);
+        this.getUserData();
     }
 
     async showJoinModal() {
@@ -32,8 +31,19 @@ export class ClubPage {
 
     async showCreateModal() {
         const modal = await this.modalController.create({
-            component: ClubCreateComponent
+            component: ClubCreateComponent,
         });
+
+        modal.onDidDismiss().then(() => {
+            this.getUserData();
+        });
+
+
         return await modal.present();
+    }
+
+    private async getUserData() {
+        this.user = await this.userService.getData();
+        console.log(this.user);
     }
 }

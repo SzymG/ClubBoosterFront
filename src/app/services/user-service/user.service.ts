@@ -88,7 +88,6 @@ export class UserService {
     }
 
     setData(data: UserStateModel) {
-        console.log(data);
         for(const key in data) {
             this.storage.set(key, data[key]);
         }
@@ -102,5 +101,12 @@ export class UserService {
         }
 
         return res as UserStateModel;
+    }
+
+    async addClub(data: ClubStateModel) {
+        let clubs = await this.storage.get(USER_CLUBS_KEY);
+        clubs = [...clubs, data];
+
+        this.storage.set(USER_CLUBS_KEY, clubs);
     }
 }

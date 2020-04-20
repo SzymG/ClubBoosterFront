@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../../../services/user-service/user.service';
 
 @Component({
     selector: 'app-club-create',
@@ -18,6 +19,7 @@ export class ClubCreateComponent implements OnInit {
     constructor(
         private readonly modalController: ModalController,
         private readonly formBuilder: FormBuilder,
+        private readonly userService: UserService,
     ) {
         this.createClub = this.formBuilder.group({
             name: ['', Validators.required],
@@ -26,12 +28,19 @@ export class ClubCreateComponent implements OnInit {
         });
     }
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
 
     createForm() {
         // TODO request z dodaniem klubu
         this.createClub.controls.photoUrl.setValue(this.imageUrl);
+        this.userService.addClub(
+            {
+                clubId: 9,
+                name: this.createClub.get('name').value,
+                photoUrl: null,
+                description: this.createClub.get('description').value,
+            }
+        );
         this.closeModal();
     }
 
