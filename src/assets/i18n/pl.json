@@ -47,7 +47,8 @@
         "password": "Hasło",
         "login": "Zaloguj się",
         "noAccount": "Nie masz konta?",
-        "register": "Zarejestruj się"
+        "register": "Zarejestruj się",
+        "unauthorized": "Niepoprawny login lub hasło"
     },
     "Profile": {
         "logout": "Wyloguj",

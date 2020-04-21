@@ -39,6 +39,11 @@
                                     <ion-input type="password" formControlName="password"></ion-input>
                                 </ion-item>
                                 <input-message [input]="login.get('password')"></input-message>
+                                <div *ngIf="password.invalid" class="error">
+                                    <div *ngIf="password.errors.unauthorized" class="ion-text-center">
+                                        {{ "LoginPage.unauthorized" | translate }}
+                                    </div>
+                                </div>
                             </ion-col>
                         </ion-row>
 

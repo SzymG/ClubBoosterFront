@@ -47,7 +47,8 @@
         "password": "Password",
         "login": "Log in",
         "noAccount": "No account?",
-        "register": "Register"
+        "register": "Register",
+        "unauthorized": "Incorrect login or password"
     },
     "Profile": {
         "logout": "Logout",
