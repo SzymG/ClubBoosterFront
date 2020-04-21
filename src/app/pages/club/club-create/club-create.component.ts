@@ -33,14 +33,15 @@ export class ClubCreateComponent implements OnInit {
     createForm() {
         // TODO request z dodaniem klubu
         this.createClub.controls.photoUrl.setValue(this.imageUrl);
-        this.userService.addClub(
-            {
-                clubId: 9,
-                name: this.createClub.get('name').value,
-                photoUrl: null,
-                description: this.createClub.get('description').value,
-            }
-        );
+        // TODO dodaj klub do localstorage
+        // this.userService.addClub(
+        //     {
+        //         clubId: 9,
+        //         name: this.createClub.get('name').value,
+        //         photoUrl: null,
+        //         description: this.createClub.get('description').value,
+        //     }
+        // );
         this.closeModal();
     }
 

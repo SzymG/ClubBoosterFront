@@ -28,22 +28,17 @@ export class LoginPage implements OnInit {
     logForm() {
         //TODO dodać logowanie na backendzie
         const response = {
-            userId: 7,
             clubs: [
                 {
-                    clubId: 1,
+                    id: 1,
                     name: 'Polskie Zimnioki',
-                    photoUrl: '/assets/img/club.png',
-                    description: 'Klub zrodzony z zimnioków'
+                    logo_url: null,
+                    owner_id: null,
+                    token: 'asdasdasd',
+                    member_roles: ['PLAYER'],
+                    s3_presigned_url: null
                 },
-                {
-                    clubId: 2,
-                    name: 'Huragan Kaźmirz',
-                    photoUrl: '/assets/img/club.png',
-                    description: 'Weterani B klasy'
-                }
             ],
-            photoUrl: '/assets/img/user.png'
         };
         this.userService.setData(response);
         this.userService.login(true);

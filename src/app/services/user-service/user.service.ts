@@ -10,16 +10,17 @@ export const PHOTO_URL_KEY = 'photoUrl';
 export const USER_CLUBS_KEY = 'clubs';
 
 export interface UserStateModel {
-    userId: number;
     clubs: ClubStateModel[];
-    photoUrl: string;
 }
 
 export interface ClubStateModel {
-    clubId: number;
+    id: number;
     name: string;
-    photoUrl: string;
-    description: string;
+    token: string;
+    logo_url: string;
+    owner_id: number;
+    member_roles: string[];
+    s3_presigned_url: string;
 }
 
 @Injectable({
