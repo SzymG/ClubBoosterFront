@@ -39,7 +39,8 @@
         "email": "Email address",
         "password": "Password",
         "confirmPassword": "Repeat password",
-        "submit": "Register"
+        "submit": "Register",
+        "success": "Registered successfully. You can log in"
     },
     "LoginPage": {
         "pageName": "Login",

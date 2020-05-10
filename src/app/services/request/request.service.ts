@@ -17,7 +17,6 @@ export class RequestService {
 
     post(url, body, params = {}): Observable<any> {
         const locale = this.translateService.currentLang;
-        console.log({...body, locale});
         return this.http.post<any>(`${this.baseUrl}${url}`, {...body, locale}, params)
             .catch(e => {
                 if (e.status === 401) {

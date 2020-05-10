@@ -39,7 +39,8 @@
         "email": "Adres e-mail",
         "password": "Hasło",
         "confirmPassword": "Powtórz hasło",
-        "submit": "Zarejestruj się"
+        "submit": "Zarejestruj się",
+        "success": "Zarejestrowano pomyślnie. Możesz się zalogować"
     },
     "LoginPage": {
         "pageName": "Logowanie",
