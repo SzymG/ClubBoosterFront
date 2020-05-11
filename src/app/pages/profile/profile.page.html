@@ -37,13 +37,12 @@
 
                     <ion-grid class="profile-data-grid">
                         <ion-row>
-                            <ion-input type="text" hidden formControlName="id"></ion-input>
                             <ion-col size="12">
                                 <ion-item color="none">
                                     <ion-label position="stacked">{{ "Profile.firstName" | translate }}</ion-label>
-                                    <ion-input type="text" formControlName="firstName" nullValue></ion-input>
+                                    <ion-input type="text" formControlName="name" nullValue></ion-input>
                                 </ion-item>
-                                <input-message [input]="profileForm.get('firstName')"></input-message>
+                                <input-message [input]="profileForm.get('name')"></input-message>
                             </ion-col>
                         </ion-row>
 
@@ -51,8 +50,8 @@
                             <ion-col class="my-input" sizeXs="12" sizeSm="6" sizeLg="3">
                                 <ion-item color="none">
                                     <ion-label position="stacked">{{ "Profile.lastName" | translate }}</ion-label>
-                                    <ion-input type="text" formControlName="lastName" nullValue></ion-input>
-                                    <input-message [input]="profileForm.get('lastName')"></input-message>
+                                    <ion-input type="text" formControlName="surname" nullValue></ion-input>
+                                    <input-message [input]="profileForm.get('surname')"></input-message>
                                 </ion-item>
                             </ion-col>
                         </ion-row>
@@ -60,13 +59,9 @@
                             <ion-col class="my-input" sizeXs="12" sizeSm="6" sizeLg="3">
                                 <ion-item color="none">
                                     <ion-label position="stacked">{{ "Profile.birthYear" | translate }}</ion-label>
-                                    <ion-input type="date" formControlName="birthYear" nullValue></ion-input>
-                                </ion-item>
-                            </ion-col>
-                            <ion-col class="my-input" sizeXs="12" sizeSm="6" sizeLg="3">
-                                <ion-item color="none">
-                                    <ion-label position="stacked">{{ "Profile.dateCreation" | translate }}</ion-label>
-                                    <ion-input type="text" formControlName="dateCreation"></ion-input>
+                                    <ion-input type="date" formControlName="birth_date" nullValue></ion-input>
+<!--                                    <ion-datetime displayFormat="D/MM/YYYY H:mm" formControlName="birth_date"></ion-datetime>-->
+
                                 </ion-item>
                             </ion-col>
                             <ion-col class="my-input" sizeXs="12" sizeSm="6" sizeLg="4">
@@ -80,13 +75,13 @@
                             <ion-col class="my-input" sizeXs="12" sizeSm="6" sizeLg="3">
                                 <ion-item color="none">
                                     <ion-label position="stacked">{{ "Profile.description" | translate }}</ion-label>
-                                    <ion-textarea formControlName="description" rows="6" nullValue></ion-textarea>
+                                    <ion-textarea formControlName="personal_description" rows="6" nullValue></ion-textarea>
                                 </ion-item>
                             </ion-col>
                             <ion-col class="my-input" sizeXs="12" sizeSm="6" sizeLg="3">
                                 <ion-item color="none">
                                     <ion-label position="stacked">{{ "Profile.career" | translate }}</ion-label>
-                                    <ion-textarea type="text" formControlName="career" rows="6" nullValue></ion-textarea>
+                                    <ion-textarea type="text" formControlName="career_description" rows="6" nullValue></ion-textarea>
                                 </ion-item>
                             </ion-col>
                         </ion-row>
