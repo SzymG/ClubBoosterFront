@@ -22,35 +22,6 @@ export class ProfilePage {
     calendarPlugins = [dayGridPlugin];
     locales = [plLocale];
     profileEvents = [];
-    // // TODO pobieranie eventów do profilu z backendu
-    // profileEvents = [
-    //     {
-    //         description : 'Przykładowy wyjazd 1',
-    //         title       : 'W',
-    //         start       : '2020-04-08T14:00:00',
-    //         end         : '2020-04-08T18:00:00',
-    //         color       : '#57ce64',
-    //     },
-    //     {
-    //         description : 'Przykładowy trening',
-    //         title       : 'T',
-    //         start       : '2020-04-08T18:30:00',
-    //         color       : '#fabb3e',
-    //     },
-    //     {
-    //         description: 'Przykładowy wyjazd 2',
-    //         title : 'W',
-    //         start : '2020-04-10',
-    //         color       : '#57ce64',
-    //     },
-    //     {
-    //         description: 'Sparing z ziemniakami',
-    //         title : 'S',
-    //         start : '2020-04-25T19:00:00',
-    //         color       : '#a8319b',
-    //     }
-    // ];
-
     profile: any;
     image: any;
     imageUrl: any;
@@ -77,10 +48,11 @@ export class ProfilePage {
 
     ionViewWillEnter() {
         this.request.get('events').subscribe((response) => {
-            console.log(response);
+            console.log('user events', response);
             this.profileEvents = response;
         });
         this.request.get('users/current').subscribe((response) => {
+            console.log('user profile', response);
             this.profile = response;
             this.profileForm.setValue(this.profile);
         });
@@ -96,33 +68,13 @@ export class ProfilePage {
 
     async sendForm() {
         // this.profileForm.controls.avatar_url.setValue(this.imageUrl);
-        console.log(this.profileForm.value);
-        this.toastService.presentToast('Pomyślnie zaktualizowano profil');
-        // TODO update na backendzie
-        // if(this.profileForm.valid) {
-        //     const profile = this.profileForm;
-        //     this.profileService.update(profile, this.image, this.selectedKeywords).then(
-        //         response => {
-        //             if(response.status === 'success') {
-        //                 const profileValues = profile.getRawValue();
-        //                 const newData: Partial<UserStateModel> = {
-        //                     name: profileValues.firstName,
-        //                     regionId: profileValues.region,
-        //                 };
-        //                 if(response.image_url) {
-        //                     newData.photo = `${URL}${PHOTO_URL}${response.image_url}`;
-        //                 }
-        //                 this.store.dispatch(new SetDataAction(newData));
-        //                 this.notificationService.showAlert(this.translate.instant('Profile.success'));
-        //             } else {
-        //                 this.notificationService.showAlert(this.translate.instant('Profile.error', 'danger'));
-        //             }
-        //         },
-        //         _ => {
-        //             this.notificationService.showAlert(this.translate.instant('Profile.error', 'danger'));
-        //         }
-        //     );
-        // }
+        console.log('profile to update', this.profileForm.value);
+        if (this.profileForm.valid) {
+            this.request.put('users', this.profileForm.value).subscribe((response) => {
+                console.log(response);
+                this.toastService.presentToast('Pomyślnie zaktualizowano profil');
+            });
+        }
     }
 
     triggerUpload() {

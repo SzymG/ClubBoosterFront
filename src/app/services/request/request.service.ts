@@ -49,7 +49,12 @@ export class RequestService {
     }
 
     put(url, body, params = {}): Observable<any> {
-        return this.http.put<any>(`${this.baseUrl}${url}`, body, params);
+        const options = {
+            params,
+            headers: this.headers
+        };
+
+        return this.http.put<any>(`${this.baseUrl}${url}`, body, options);
     }
 
     delete(url, params = {}): Observable<any> {
