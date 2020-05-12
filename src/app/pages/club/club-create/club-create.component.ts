@@ -2,6 +2,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../services/user-service/user.service';
+import {RequestService} from '../../../services/request/request.service';
+import {ToastService} from '../../../services/toast/toast.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-club-create',
@@ -20,29 +23,29 @@ export class ClubCreateComponent implements OnInit {
         private readonly modalController: ModalController,
         private readonly formBuilder: FormBuilder,
         private readonly userService: UserService,
+        private readonly request: RequestService,
+        private readonly toastService: ToastService,
+        private readonly translateService: TranslateService,
     ) {
         this.createClub = this.formBuilder.group({
             name: ['', Validators.required],
-            photoUrl: [''],
-            description: ['', Validators.required],
+            logo_url: [''],
         });
     }
 
     ngOnInit() {}
 
     createForm() {
-        // TODO request z dodaniem klubu
-        this.createClub.controls.photoUrl.setValue(this.imageUrl);
-        // TODO dodaj klub do localstorage
-        // this.userService.addClub(
-        //     {
-        //         clubId: 9,
-        //         name: this.createClub.get('name').value,
-        //         photoUrl: null,
-        //         description: this.createClub.get('description').value,
-        //     }
-        // );
-        this.closeModal();
+        const body = {
+            club: this.createClub.value,
+        };
+
+        // this.createClub.controls.photoUrl.setValue(this.imageUrl);
+        this.request.post('clubs', body).subscribe((response) => {
+            console.log(response);
+            this.toastService.presentToast(this.translateService.instant('ClubPage.createdSuccessfully'));
+            this.closeModal();
+        });
     }
 
     closeModal() {

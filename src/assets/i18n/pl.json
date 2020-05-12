@@ -61,7 +61,8 @@
         "birthYear": "Data urodzenia",
         "email": "Adres e-mail",
         "description": "Opis",
-        "save": "Zapisz"
+        "save": "Zapisz",
+        "success": "Pomyślnie zaktualizowano profil"
     },
     "ClubPage": {
         "clubs": "Kluby",
@@ -73,6 +74,8 @@
         "name": "Nazwa klubu",
         "photo": "Zdjęcie",
         "description": "Opis klubu",
-        "clickToUpload": "Kliknij, aby dodać"
+        "clickToUpload": "Kliknij, aby dodać",
+        "createdSuccessfully": "Pomyślnie utworzono klub",
+        "joinedSuccessfully": "Pomyślnie dołączono do klubu"
     }
 }

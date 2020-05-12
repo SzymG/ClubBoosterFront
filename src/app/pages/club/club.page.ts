@@ -3,6 +3,7 @@ import {UserService, UserStateModel} from '../../services/user-service/user.serv
 import {ClubJoinComponent} from './club-join/club-join.component';
 import {ModalController} from '@ionic/angular';
 import {ClubCreateComponent} from './club-create/club-create.component';
+import {RequestService} from '../../services/request/request.service';
 
 @Component({
     selector: 'app-club',
@@ -10,11 +11,12 @@ import {ClubCreateComponent} from './club-create/club-create.component';
     styleUrls: ['./club.page.scss'],
 })
 export class ClubPage {
-    user: UserStateModel;
+    public clubs;
 
     constructor(
         private readonly userService: UserService,
-        private readonly modalController: ModalController
+        private readonly modalController: ModalController,
+        private readonly request: RequestService,
     ) {
     }
 
@@ -43,7 +45,9 @@ export class ClubPage {
     }
 
     private async getUserData() {
-        this.user = await this.userService.getData();
-        console.log(this.user);
+        this.request.get('clubs').subscribe((response) => {
+            console.log('user clubs', response);
+            this.clubs = response;
+        });
     }
 }

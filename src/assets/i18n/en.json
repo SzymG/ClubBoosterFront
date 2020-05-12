@@ -61,6 +61,7 @@
         "birthYear": "Birth date",
         "email": "E-mail address",
         "description": "Description",
-        "save": "Save"
+        "save": "Save",
+        "success": "Profile saved successfully"
     }
 }

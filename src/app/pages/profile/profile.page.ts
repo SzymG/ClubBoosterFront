@@ -51,6 +51,7 @@ export class ProfilePage {
             console.log('user events', response);
             this.profileEvents = response;
         });
+
         this.request.get('users/current').subscribe((response) => {
             console.log('user profile', response);
             this.profile = response;
@@ -72,7 +73,7 @@ export class ProfilePage {
         if (this.profileForm.valid) {
             this.request.put('users', this.profileForm.value).subscribe((response) => {
                 console.log(response);
-                this.toastService.presentToast('Pomyślnie zaktualizowano profil');
+                this.toastService.presentToast(this.translateService.instant('Profile.success'));
             });
         }
     }

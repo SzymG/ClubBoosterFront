@@ -47,18 +47,6 @@
                         </ion-col>
                     </ion-row>
 
-                    <ion-row>
-                        <ion-col>
-                            <ion-item color="none">
-                                <ion-label position="stacked">{{'ClubPage.description' | translate}}
-                                    <ion-text color="danger">*</ion-text>
-                                </ion-label>
-                                <ion-textarea type="text" formControlName="description"></ion-textarea>
-                            </ion-item>
-                            <input-message [input]="createClub.get('description')"></input-message>
-                        </ion-col>
-                    </ion-row>
-
                     <ion-button color="dark" expand="block" size="large" type="submit" class="ion-margin-top"
                                 [disabled]="!createClub.valid">{{'ClubPage.create' | translate}}</ion-button>
                 </form>
