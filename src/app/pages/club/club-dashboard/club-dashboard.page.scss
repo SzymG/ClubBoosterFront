@@ -1,0 +1,36 @@
+.dashboard-grid {
+    margin-top: 55px;
+    min-height: calc(100% - 55px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .dashboard-item {
+        position: relative;
+        height: 150px;
+        margin: 5px;
+
+        img {
+            height: 100%;
+            width: 100%;
+            border-radius: 7px;
+        }
+
+        div {
+            text-transform: uppercase;
+            text-align: center;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            background: #ffffffaa;
+            font-size: 24px;
+            z-index: 100;
+            font-weight: bold;
+        }
+    }
+}

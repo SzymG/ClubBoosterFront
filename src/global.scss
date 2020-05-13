@@ -14,3 +14,19 @@
 ion-content {
     --background: #fff url("assets/img/background.jpg") no-repeat center center / cover;
 }
+
+.alert-warning {
+    background: #ffef3b;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+ion-spinner {
+    color: white;
+
+    &+p {
+        color: #ffffffee;
+    }
+}

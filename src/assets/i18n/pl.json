@@ -3,9 +3,11 @@
         "confirm": "Zatwierdź",
         "cancel": "Anuluj",
         "club": "Klub",
+        "clubList": "Lista klubów",
         "profile": "Profil",
         "go": "Przejdź",
-        "logout": "Wyloguj się"
+        "logout": "Wyloguj się",
+        "loading": "Ładowanie..."
     },
     "Language": {
         "chooseLanguage": "Wybierz język aplikacji",
@@ -75,7 +77,14 @@
         "photo": "Zdjęcie",
         "description": "Opis klubu",
         "clickToUpload": "Kliknij, aby dodać",
+        "badToken": "Niepoprawny token",
         "createdSuccessfully": "Pomyślnie utworzono klub",
-        "joinedSuccessfully": "Pomyślnie dołączono do klubu"
+        "joinedSuccessfully": "Pomyślnie dołączono do klubu",
+        "notAccepted": "Twoja prośba o dołączenie do klubu nie została jeszcze zaakceptowana",
+        "announcements": "Ogłoszenia",
+        "joinAsks": "Prośby o dołączenie",
+        "groupManagement": "Zarządzanie grupami",
+        "stats": "Statystyki",
+        "editClub": "Edytuj klub"
     }
 }

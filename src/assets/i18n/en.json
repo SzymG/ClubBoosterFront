@@ -3,9 +3,11 @@
         "confirm": "Confirm",
         "cancel": "Cancel",
         "club": "Club",
+        "clubList": "Club list",
         "profile": "Profile",
         "go": "go",
-        "logout": "Logout"
+        "logout": "Logout",
+        "loading": "Loading..."
     },
     "Language": {
         "chooseLanguage": "Choose app language",

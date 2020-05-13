@@ -35,6 +35,8 @@ export class RequestService {
             .catch(e => {
                 if (e.status === 401) {
                     return ['unauthorized'];
+                } else if (e.status === 403) {
+                    return ['forbidden'];
                 }
             });
     }
@@ -45,7 +47,14 @@ export class RequestService {
             headers: this.headers
         };
 
-        return this.http.get<any>(`${this.baseUrl}${url}`, options);
+        return this.http.get<any>(`${this.baseUrl}${url}`, options)
+            .catch(e => {
+                if (e.status === 401) {
+                    return ['unauthorized'];
+                } else if (e.status === 403) {
+                    return ['forbidden'];
+                }
+            });
     }
 
     put(url, body, params = {}): Observable<any> {

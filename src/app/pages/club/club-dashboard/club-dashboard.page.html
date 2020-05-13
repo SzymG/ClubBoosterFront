@@ -1,9 +1,77 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>club-dashboard</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="isCoachOrPresident">
+        <ion-fab-button class="add-content-button" color="primary">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="start">
+            <ion-fab-button class="add-content-button" color="primary" [routerLink]="['club/announcement/create']" routerDirection="forward">
+                <ion-icon name="paper"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button class="add-content-button" *ngIf="true" color="primary"  [routerLink]="['club/event/create']" routerDirection="forward">
+                <ion-icon name="calendar"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
+    </ion-fab>
+    <ion-grid class="dashboard-grid">
+        <ng-container *ngIf="!loading; else loadingTemplate">
+            <ng-container *ngIf="club && club.member_roles && club.member_roles.length; else notAccepted">
+                <ion-row><h1 style="color: white;">{{club.name}}</h1></ion-row>
+                <ion-row>
+                    <full-calendar
+                        #calendar
+                        defaultView="dayGridMonth"
+                        locale="{{translateService.currentLang}}"
+                        [locales]="locales"
+                        [plugins]="calendarPlugins"
+                        [events]="clubEvents"
+                        [displayEventTime]="false"
+                        (eventClick)="eventClickHandler($event)"
+                    >
+                    </full-calendar>
+                </ion-row>
+                <ion-row class="dashboard-item" [routerLink]="['/club/announcements']" skipLocationChange="true">
+                    <img src="../../../../assets/img/announcement.jpg">
+                    <div>
+                        {{"ClubPage.announcements" | translate}}
+                    </div>
+                </ion-row>
+                <ng-container *ngIf="isCoachOrPresident">
+                    <ion-row class="dashboard-item" [routerLink]="['/club/asks']" skipLocationChange="true"v>
+                        <img src="../../../../assets/img/join.jpg">
+                        <div>
+                            {{"ClubPage.joinAsks" | translate}}
+                        </div>
+                    </ion-row>
+                    <ion-row class="dashboard-item" [routerLink]="['/club/management']" skipLocationChange="true">
+                        <img src="../../../../assets/img/group.jpg">
+                        <div>
+                            {{"ClubPage.groupManagement" | translate}}
+                        </div>
+                    </ion-row>
+                    <ion-row class="dashboard-item" [routerLink]="['/club/stats']" skipLocationChange="true">
+                        <img src="../../../../assets/img/stats.jpg">
+                        <div>
+                            {{"ClubPage.stats" | translate}}
+                        </div>
+                    </ion-row>
+                </ng-container>
 
+                <ion-row class="dashboard-item" *ngIf="isPresident" [routerLink]="['/club/edit']" skipLocationChange="true">
+                    <img src="../../../../assets/img/edit.jpg">
+                    <div>
+                        {{"ClubPage.editClub" | translate}}
+                    </div>
+                </ion-row>
+            </ng-container>
+            <ng-template #notAccepted>
+                <div class="alert-warning" *ngIf="!loading">
+                    {{ 'ClubPage.notAccepted' | translate }}
+                </div>
+            </ng-template>
+        </ng-container>
+        <ng-template #loadingTemplate>
+            <ion-spinner name="lines"></ion-spinner>
+            <p>{{ 'Common.loading' | translate }}</p>
+        </ng-template>
+    </ion-grid>
 </ion-content>
