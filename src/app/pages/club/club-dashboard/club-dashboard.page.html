@@ -4,10 +4,10 @@
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
         <ion-fab-list side="start">
-            <ion-fab-button class="add-content-button" color="primary" [routerLink]="['club/announcement/create']" routerDirection="forward">
+            <ion-fab-button class="add-content-button" color="primary" [routerLink]="['/club/announcement/create']" skipLocationChange="true">
                 <ion-icon name="paper"></ion-icon>
             </ion-fab-button>
-            <ion-fab-button class="add-content-button" *ngIf="true" color="primary"  [routerLink]="['club/event/create']" routerDirection="forward">
+            <ion-fab-button class="add-content-button" color="primary"  [routerLink]="['/club/event/create']" skipLocationChange="true">
                 <ion-icon name="calendar"></ion-icon>
             </ion-fab-button>
         </ion-fab-list>
