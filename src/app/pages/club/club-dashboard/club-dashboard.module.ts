@@ -1,19 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {Routes, RouterModule} from '@angular/router';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { ClubDashboardPage } from './club-dashboard.page';
+import {ClubDashboardPage} from './club-dashboard.page';
 import {FullCalendarModule} from '@fullcalendar/angular';
 import {TranslateModule} from '@ngx-translate/core';
+import {CreateAnnouncementComponent} from '../create-announcement/create-announcement.component';
+import {CreateEventComponent} from '../create-event/create-event.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ClubDashboardPage
-  }
+    {
+        path: '',
+        component: ClubDashboardPage
+    }
 ];
 
 @NgModule({
@@ -23,8 +25,13 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         FullCalendarModule,
-        TranslateModule
+        TranslateModule,
     ],
-  declarations: [ClubDashboardPage]
+    declarations: [ClubDashboardPage, CreateAnnouncementComponent, CreateEventComponent],
+    entryComponents: [
+        CreateAnnouncementComponent,
+        CreateEventComponent
+    ],
 })
-export class ClubDashboardPageModule {}
+export class ClubDashboardPageModule {
+}

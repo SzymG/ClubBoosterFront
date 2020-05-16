@@ -4,10 +4,10 @@
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
         <ion-fab-list side="start">
-            <ion-fab-button class="add-content-button" color="primary" [routerLink]="['/club/announcement/create']" skipLocationChange="true">
+            <ion-fab-button class="add-content-button" color="primary" (click)="createAnnouncement()">
                 <ion-icon name="paper"></ion-icon>
             </ion-fab-button>
-            <ion-fab-button class="add-content-button" color="primary"  [routerLink]="['/club/event/create']" skipLocationChange="true">
+            <ion-fab-button class="add-content-button" color="primary" (click)="createEvent()">
                 <ion-icon name="calendar"></ion-icon>
             </ion-fab-button>
         </ion-fab-list>
@@ -36,7 +36,7 @@
                     </div>
                 </ion-row>
                 <ng-container *ngIf="isCoachOrPresident">
-                    <ion-row class="dashboard-item" [routerLink]="['/club/asks']" skipLocationChange="true"v>
+                    <ion-row class="dashboard-item" [routerLink]="['/club/asks']" skipLocationChange="true">
                         <img src="../../../../assets/img/join.jpg">
                         <div>
                             {{"ClubPage.joinAsks" | translate}}
@@ -62,6 +62,7 @@
                         {{"ClubPage.editClub" | translate}}
                     </div>
                 </ion-row>
+                <ion-label *ngIf="isPresident" style="color: white;">{{club.token}}</ion-label>
             </ng-container>
             <ng-template #notAccepted>
                 <div class="alert-warning" *ngIf="!loading">

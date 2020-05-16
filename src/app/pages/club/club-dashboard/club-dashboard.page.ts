@@ -5,6 +5,9 @@ import {TranslateService} from '@ngx-translate/core';
 import plLocale from '@fullcalendar/core/locales/pl';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import {FullCalendarComponent} from '@fullcalendar/angular';
+import {ModalController} from '@ionic/angular';
+import {CreateAnnouncementComponent} from '../create-announcement/create-announcement.component';
+import {CreateEventComponent} from '../create-event/create-event.component';
 
 @Component({
     selector: 'app-club-dashboard',
@@ -23,6 +26,7 @@ export class ClubDashboardPage implements OnInit {
     private club: any;
 
     constructor(
+        private readonly modalController: ModalController,
         private readonly activatedRoute: ActivatedRoute,
         private readonly request: RequestService,
         private readonly translateService: TranslateService,
@@ -63,5 +67,19 @@ export class ClubDashboardPage implements OnInit {
     get isCoachOrPresident() {
         return this.club && this.club.member_roles &&
             (this.club.member_roles.includes('PRESIDENT') || this.club.member_roles.includes('COACH'));
+    }
+
+    async createAnnouncement() {
+        const modal = await this.modalController.create({
+            component: CreateAnnouncementComponent
+        });
+        return await modal.present();
+    }
+
+    async createEvent() {
+        const modal = await this.modalController.create({
+            component: CreateEventComponent
+        });
+        return await modal.present();
     }
 }
