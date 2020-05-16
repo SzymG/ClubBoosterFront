@@ -10,6 +10,9 @@ import {FullCalendarModule} from '@fullcalendar/angular';
 import {TranslateModule} from '@ngx-translate/core';
 import {CreateAnnouncementComponent} from '../create-announcement/create-announcement.component';
 import {CreateEventComponent} from '../create-event/create-event.component';
+import {ClubAsksComponent} from '../club-asks/club-asks.component';
+import {UserToAcceptComponent} from '../club-asks/components/user-to-accept/user-to-accept.component';
+import {Clipboard} from '@ionic-native/clipboard/ngx';
 
 const routes: Routes = [
     {
@@ -27,10 +30,14 @@ const routes: Routes = [
         FullCalendarModule,
         TranslateModule,
     ],
-    declarations: [ClubDashboardPage, CreateAnnouncementComponent, CreateEventComponent],
+    providers: [
+        Clipboard
+    ],
+    declarations: [ClubDashboardPage, CreateAnnouncementComponent, CreateEventComponent, ClubAsksComponent, UserToAcceptComponent],
     entryComponents: [
         CreateAnnouncementComponent,
-        CreateEventComponent
+        CreateEventComponent,
+        ClubAsksComponent
     ],
 })
 export class ClubDashboardPageModule {

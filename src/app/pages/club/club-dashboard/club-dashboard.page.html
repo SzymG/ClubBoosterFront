@@ -29,40 +29,35 @@
                     >
                     </full-calendar>
                 </ion-row>
-                <ion-row class="dashboard-item" [routerLink]="['/club/announcements']" skipLocationChange="true">
-                    <img src="../../../../assets/img/announcement.jpg">
-                    <div>
-                        {{"ClubPage.announcements" | translate}}
-                    </div>
-                </ion-row>
+
+                <ion-item color="dark" detail="true" [routerLink]="['/club/announcements']" skipLocationChange="true">
+                    <p>{{"ClubPage.announcements" | translate}}</p>
+                </ion-item>
+                <ion-item color="dark" detail="true" [routerLink]="['/club/' + clubId + '/list']" skipLocationChange="true">
+                    <p>{{"ClubPage.list" | translate}}</p>
+                </ion-item>
+
                 <ng-container *ngIf="isCoachOrPresident">
-                    <ion-row class="dashboard-item" [routerLink]="['/club/asks']" skipLocationChange="true">
-                        <img src="../../../../assets/img/join.jpg">
-                        <div>
-                            {{"ClubPage.joinAsks" | translate}}
-                        </div>
-                    </ion-row>
-                    <ion-row class="dashboard-item" [routerLink]="['/club/management']" skipLocationChange="true">
-                        <img src="../../../../assets/img/group.jpg">
-                        <div>
-                            {{"ClubPage.groupManagement" | translate}}
-                        </div>
-                    </ion-row>
-                    <ion-row class="dashboard-item" [routerLink]="['/club/stats']" skipLocationChange="true">
-                        <img src="../../../../assets/img/stats.jpg">
-                        <div>
-                            {{"ClubPage.stats" | translate}}
-                        </div>
-                    </ion-row>
+                    <ion-item color="dark" detail="true" (click)="showAsks()">
+                        <p>{{"ClubPage.joinAsks" | translate}}</p>
+                    </ion-item>
+                    <ion-item color="dark" detail="true" [routerLink]="['/club/management']" skipLocationChange="true">
+                        <p>{{"ClubPage.groupManagement" | translate}}</p>
+                    </ion-item>
+                    <ion-item color="dark" detail="true" [routerLink]="['/club/stats']" skipLocationChange="true">
+                        <p>{{"ClubPage.stats" | translate}}</p>
+                    </ion-item>
                 </ng-container>
 
-                <ion-row class="dashboard-item" *ngIf="isPresident" [routerLink]="['/club/edit']" skipLocationChange="true">
-                    <img src="../../../../assets/img/edit.jpg">
-                    <div>
-                        {{"ClubPage.editClub" | translate}}
-                    </div>
-                </ion-row>
-                <ion-label *ngIf="isPresident" style="color: white;">{{club.token}}</ion-label>
+                <ng-container *ngIf="isPresident">
+                    <ion-item color="dark" detail="true" [routerLink]="['/club/edit']" skipLocationChange="true">
+                        <p>{{"ClubPage.editClub" | translate}}</p>
+                    </ion-item>
+                </ng-container>
+
+                <ion-item *ngIf="isCoachOrPresident" color="dark" class="ion-justify-content-center" (click)="copyToken()">
+                    <p>{{'ClubPage.clubCode' | translate}}: {{club.token}}</p>
+                </ion-item>
             </ng-container>
             <ng-template #notAccepted>
                 <div class="alert-warning" *ngIf="!loading">

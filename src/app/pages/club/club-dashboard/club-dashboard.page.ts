@@ -8,6 +8,9 @@ import {FullCalendarComponent} from '@fullcalendar/angular';
 import {ModalController} from '@ionic/angular';
 import {CreateAnnouncementComponent} from '../create-announcement/create-announcement.component';
 import {CreateEventComponent} from '../create-event/create-event.component';
+import {ClubAsksComponent} from '../club-asks/club-asks.component';
+import { Clipboard } from '@ionic-native/clipboard/ngx';
+import {ToastService} from '../../../services/toast/toast.service';
 
 @Component({
     selector: 'app-club-dashboard',
@@ -30,6 +33,8 @@ export class ClubDashboardPage implements OnInit {
         private readonly activatedRoute: ActivatedRoute,
         private readonly request: RequestService,
         private readonly translateService: TranslateService,
+        private readonly clipboard: Clipboard,
+        private readonly toastService: ToastService
     ) { }
 
     ngOnInit() {
@@ -81,5 +86,20 @@ export class ClubDashboardPage implements OnInit {
             component: CreateEventComponent
         });
         return await modal.present();
+    }
+
+    async showAsks() {
+        const modal = await this.modalController.create({
+            component: ClubAsksComponent,
+            componentProps: {
+                clubId: this.clubId
+            }
+        });
+        return await modal.present();
+    }
+
+    copyToken() {
+        this.clipboard.copy(this.club.token);
+        this.toastService.presentToast(this.translateService.instant('ClubPage.tokenCopied'));
     }
 }

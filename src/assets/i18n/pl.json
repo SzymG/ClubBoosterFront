@@ -7,7 +7,10 @@
         "profile": "Profil",
         "go": "Przejdź",
         "logout": "Wyloguj się",
-        "loading": "Ładowanie..."
+        "loading": "Ładowanie...",
+        "player": "Zawodnik",
+        "coach": "Trener",
+        "president": "Prezes"
     },
     "Language": {
         "chooseLanguage": "Wybierz język aplikacji",
@@ -79,12 +82,21 @@
         "clickToUpload": "Kliknij, aby dodać",
         "badToken": "Niepoprawny token",
         "createdSuccessfully": "Pomyślnie utworzono klub",
-        "joinedSuccessfully": "Pomyślnie dołączono do klubu",
+        "joinedSuccessfully": "Pomyślnie wysłano prośbę o dołączenie",
         "notAccepted": "Twoja prośba o dołączenie do klubu nie została jeszcze zaakceptowana",
+        "noUsersToAccept": "Nie ma użytkowników oczekujących na zaakceptowanie do klubu",
         "announcements": "Ogłoszenia",
         "joinAsks": "Prośby o dołączenie",
         "groupManagement": "Zarządzanie grupami",
         "stats": "Statystyki",
-        "editClub": "Edytuj klub"
+        "editClub": "Edytuj klub",
+        "userRemoved": "Pomyślnie odrzucono prośbę o dołączenie",
+        "userAdded": "Pomyślnie dodano do klubu",
+        "giveRole": "Nadaj rolę użytkownikowi",
+        "clubCode": "Kod klubu",
+        "anonymusUser": "Użytkownik anonimowy",
+        "tokenCopied": "Pomyślnie skopiowano token do schowka",
+        "list": "Członkowie klubu",
+        "backToClub": "Powrót do klubu"
     }
 }

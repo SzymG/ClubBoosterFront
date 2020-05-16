@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-icon name="arrow-back" (click)="closeModal()"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="asks-grid">
+        <ng-container *ngIf="!loading; else loadingTemplate">
+            <ng-container *ngIf="this.usersToAccept && this.usersToAccept.length; else noUsersToAccept">
+                <ion-list>
+                    <user-to-accept *ngFor="let user of usersToAccept"
+                                             [user]="user" (itemChanged)="onItemChanged($event)">
+                    </user-to-accept>
+                </ion-list>
+            </ng-container>
+            <ng-template #noUsersToAccept>
+                <div class="alert-warning">
+                    {{ 'ClubPage.noUsersToAccept' | translate }}
+                </div>
+            </ng-template>
+        </ng-container>
+        <ng-template #loadingTemplate>
+            <ion-spinner name="lines"></ion-spinner>
+            <p>{{ 'Common.loading' | translate }}</p>
+        </ng-template>
+    </ion-grid>
+</ion-content>

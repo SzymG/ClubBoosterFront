@@ -1,0 +1,14 @@
+ion-item {
+    --background: none;
+
+    ion-img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+    }
+
+    ion-label {
+        color: white;
+        padding-left: 1rem;
+    }
+}

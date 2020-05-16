@@ -67,6 +67,11 @@ export class RequestService {
     }
 
     delete(url, params = {}): Observable<any> {
-        return this.http.delete<any>(`${this.baseUrl}${url}`, params);
+        const options = {
+            params,
+            headers: this.headers
+        };
+
+        return this.http.delete<any>(`${this.baseUrl}${url}`, options);
     }
 }

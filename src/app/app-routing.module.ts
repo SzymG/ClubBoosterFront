@@ -29,8 +29,13 @@ const routes: Routes = [
     {
         path: 'club/:id',
         loadChildren: './pages/club/club-dashboard/club-dashboard.module#ClubDashboardPageModule',
-        canActivate: [AuthGuardService]
+        canActivate: [AuthGuardService],
     },
+    {
+        path: 'club/:id/list',
+        loadChildren: './pages/club/member-list/member-list.module#MemberListPageModule',
+        canActivate: [AuthGuardService],
+    }
 ];
 
 @NgModule({
