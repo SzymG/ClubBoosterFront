@@ -10,6 +10,9 @@ import {TranslateModule} from '@ngx-translate/core';
 import {ComponentsModule} from '../../components/components.module';
 import {ClubJoinComponent} from './club-join/club-join.component';
 import {ClubCreateComponent} from './club-create/club-create.component';
+import {ClubProfileComponent} from './club-profile/club-profile.component';
+import {MemberListPageModule} from './member-list/member-list.module';
+import {UserProfileComponent} from './club-asks/components/user-profile/user-profile.component';
 
 const routes: Routes = [
     {
@@ -26,7 +29,7 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         TranslateModule,
         ComponentsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
     declarations: [ClubPage, ClubJoinComponent, ClubCreateComponent],
     entryComponents: [

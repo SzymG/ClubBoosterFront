@@ -5,7 +5,7 @@ import {TranslateService} from '@ngx-translate/core';
 import plLocale from '@fullcalendar/core/locales/pl';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import {FullCalendarComponent} from '@fullcalendar/angular';
-import {ModalController} from '@ionic/angular';
+import {AlertController, ModalController, NavController} from '@ionic/angular';
 import {CreateAnnouncementComponent} from '../create-announcement/create-announcement.component';
 import {CreateEventComponent} from '../create-event/create-event.component';
 import {ClubAsksComponent} from '../club-asks/club-asks.component';
@@ -34,7 +34,9 @@ export class ClubDashboardPage implements OnInit {
         private readonly request: RequestService,
         private readonly translateService: TranslateService,
         private readonly clipboard: Clipboard,
-        private readonly toastService: ToastService
+        private readonly toastService: ToastService,
+        private readonly alertController: AlertController,
+        private readonly navCtrl: NavController,
     ) { }
 
     ngOnInit() {
@@ -101,5 +103,30 @@ export class ClubDashboardPage implements OnInit {
     copyToken() {
         this.clipboard.copy(this.club.token);
         this.toastService.presentToast(this.translateService.instant('ClubPage.tokenCopied'));
+    }
+
+    async leaveClub() {
+        const rejectAlert = await this.alertController.create({
+            header: this.translateService.instant('ClubPage.leaveConfirm'),
+            buttons: [
+                {
+                    text: this.translateService.instant('Common.cancel'),
+                    role: 'cancel',
+                    cssClass: 'secondary',
+                }, {
+                    text: this.translateService.instant('Common.confirm'),
+                    handler: () => {
+                        this.request.delete(`clubs/${this.clubId}/leave`).subscribe((response) => {
+                            if (response.data) {
+                                this.navCtrl.back();
+                                this.toastService.presentToast(this.translateService.instant('ClubPage.leaveSuccess'));
+                            }
+                        });
+                    }
+                }
+            ]
+        });
+
+        rejectAlert.present();
     }
 }

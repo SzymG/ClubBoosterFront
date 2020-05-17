@@ -15,7 +15,10 @@
     <ion-grid class="dashboard-grid">
         <ng-container *ngIf="!loading; else loadingTemplate">
             <ng-container *ngIf="club && club.member_roles && club.member_roles.length; else notAccepted">
-                <ion-row><h1 style="color: white;">{{club.name}}</h1></ion-row>
+                <ion-row class="title-row ion-align-items-center">
+                    <h1 style="color: white;">{{club.name}}</h1>
+                    <ion-icon color="danger" (click)="leaveClub()" name="exit"></ion-icon>
+                </ion-row>
                 <ion-row>
                     <full-calendar
                         #calendar

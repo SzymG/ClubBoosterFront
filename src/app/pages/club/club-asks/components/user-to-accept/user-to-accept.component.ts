@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ClubProfileComponent} from '../../../club-profile/club-profile.component';
 
 @Component({
     selector: 'user-to-accept',

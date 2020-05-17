@@ -1,3 +1,52 @@
 .member-list-grid {
-    padding: 55px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: calc(100% - 66px);
+    height: auto;
+    padding: 0;
+    background: #2e3b42dd;
+    color: white;
+    margin: 60px 6px 6px;
+    border-radius: 4px;
+
+    .loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    ion-row {
+        width: 100%;
+    }
+
+    ion-list {
+        background: none;
+        width: 100%;
+    }
+
+    ion-item {
+        --background: none;
+
+        ion-img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        ion-label {
+            color: white;
+            padding-left: 1rem;
+        }
+
+        ion-icon {
+            color: white;
+        }
+    }
 }

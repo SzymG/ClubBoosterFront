@@ -12,7 +12,7 @@
             <ng-container *ngIf="this.usersToAccept && this.usersToAccept.length; else noUsersToAccept">
                 <ion-list>
                     <user-to-accept *ngFor="let user of usersToAccept"
-                                             [user]="user" (itemChanged)="onItemChanged($event)">
+                                             [user]="user" (itemChanged)="onItemChanged($event)" (click)="showUserProfile(user)">
                     </user-to-accept>
                 </ion-list>
             </ng-container>

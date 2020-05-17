@@ -97,6 +97,15 @@
         "anonymusUser": "Użytkownik anonimowy",
         "tokenCopied": "Pomyślnie skopiowano token do schowka",
         "list": "Członkowie klubu",
-        "backToClub": "Powrót do klubu"
+        "backToClub": "Powrót do klubu",
+        "notFilled": "Nie uzupelniono",
+        "removeFromClub": "Usuń z klubu",
+        "removeFromClubSuccess": "Pomyślnie usunięto z klubu",
+        "removeFromClubConfirm": "Czy na pewno chcesz usunąć tego użytkownika z klubu?",
+        "leaveClub": "Opuść klub",
+        "leaveClubSuccess": "Pomyślnie opuszczono klub",
+        "rejectAskConfirm": "Czy na pewno chcesz odrzucić tę prośbę o dołączenie?",
+        "leaveConfirm": "Czy na pewno chcesz opuścić klub? Operacja jest nieodwracalna",
+        "leaveSuccess": "Pomyślnie opuszczono klub"
     }
 }

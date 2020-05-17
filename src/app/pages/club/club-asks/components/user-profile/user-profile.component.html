@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back" (click)="closeModal()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="club-profile-grid">
+    <ng-container *ngIf="!loading; else loadingTemplate">
+      <ion-row>
+        <ion-col size="12" class="photo-container">
+          <ion-img [src]="userProfile.avatar_url || '/assets/img/user.png'"></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item color="none">
+            <ion-label position="stacked">{{ "Profile.firstName" | translate }}</ion-label>
+            {{userProfile.name ? userProfile.name : ('ClubPage.notFilled' | translate)}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item color="none">
+            <ion-label position="stacked">{{ "Profile.lastName" | translate }}</ion-label>
+            {{userProfile.surname ? userProfile.surname : ('ClubPage.notFilled' | translate)}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item color="none">
+            <ion-label position="stacked">{{ "Profile.description" | translate }}</ion-label>
+            {{userProfile.description ? userProfile.description : ('ClubPage.notFilled' | translate)}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item color="none">
+            <ion-label position="stacked">{{ "Profile.career" | translate }}</ion-label>
+            {{userProfile.career ? userProfile.career : ('ClubPage.notFilled' | translate)}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item color="none">
+            <ion-label position="stacked">{{ "Profile.birthYear" | translate }}</ion-label>
+            {{userProfile.birth_date ? userProfile.birth_date : ('ClubPage.notFilled' | translate)}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+    <ng-template #loadingTemplate>
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <ion-spinner name="lines"></ion-spinner>
+        <p>{{ 'Common.loading' | translate }}</p>
+      </div>
+    </ng-template>
+  </ion-grid>
+</ion-content>
+

@@ -13,6 +13,8 @@ import {CreateEventComponent} from '../create-event/create-event.component';
 import {ClubAsksComponent} from '../club-asks/club-asks.component';
 import {UserToAcceptComponent} from '../club-asks/components/user-to-accept/user-to-accept.component';
 import {Clipboard} from '@ionic-native/clipboard/ngx';
+import {ClubProfileComponent} from '../club-profile/club-profile.component';
+import {UserProfileComponent} from '../club-asks/components/user-profile/user-profile.component';
 
 const routes: Routes = [
     {
@@ -33,11 +35,19 @@ const routes: Routes = [
     providers: [
         Clipboard
     ],
-    declarations: [ClubDashboardPage, CreateAnnouncementComponent, CreateEventComponent, ClubAsksComponent, UserToAcceptComponent],
+    declarations: [
+        ClubDashboardPage,
+        CreateAnnouncementComponent,
+        CreateEventComponent,
+        ClubAsksComponent,
+        UserToAcceptComponent,
+        UserProfileComponent
+    ],
     entryComponents: [
         CreateAnnouncementComponent,
         CreateEventComponent,
-        ClubAsksComponent
+        ClubAsksComponent,
+        UserProfileComponent
     ],
 })
 export class ClubDashboardPageModule {

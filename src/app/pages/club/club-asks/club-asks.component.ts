@@ -3,6 +3,8 @@ import {AlertController, ModalController} from '@ionic/angular';
 import {RequestService} from '../../../services/request/request.service';
 import {ToastService} from '../../../services/toast/toast.service';
 import {TranslateService} from '@ngx-translate/core';
+import {ClubProfileComponent} from '../club-profile/club-profile.component';
+import {UserProfileComponent} from './components/user-profile/user-profile.component';
 
 @Component({
     selector: 'app-club-asks',
@@ -88,15 +90,49 @@ export class ClubAsksComponent implements OnInit {
             ]
         });
 
+        const rejectAlert = await this.alertController.create({
+            header: this.translateService.instant('ClubPage.rejectAskConfirm'),
+            buttons: [
+                {
+                    text: this.translateService.instant('Common.cancel'),
+                    role: 'cancel',
+                    cssClass: 'secondary',
+                }, {
+                    text: this.translateService.instant('Common.confirm'),
+                    handler: () => {
+                        this.request.delete(`clubs/${this.clubId}/members/${user.id}`).subscribe((response) => {
+                            if (response.data) {
+                                this.toastService.presentToast(this.translateService.instant('ClubPage.userRemoved'));
+                                this.ionViewWillEnter();
+                            }
+                        });
+                    }
+                }
+            ]
+        });
+
         if (user.status === 'accepted') {
             acceptAlert.present();
         } else {
-            this.request.delete(`clubs/${this.clubId}/members/${user.id}`).subscribe((response) => {
-                if (response.data) {
-                    this.toastService.presentToast(this.translateService.instant('ClubPage.userRemoved'));
-                    this.ionViewWillEnter();
-                }
-            });
+            rejectAlert.present();
         }
+    }
+
+    async showUserProfile(user) {
+        const modal = await this.modalController.create({
+            component: UserProfileComponent,
+            componentProps: {
+                clubId: user.club_id,
+                memberId: user.id,
+            }
+        });
+
+        modal.onDidDismiss().then((data: any) => {
+            if (data.data && data.data.status) {
+                this.ionViewWillEnter();
+            }
+        });
+
+        return await modal.present();
     }
 }
