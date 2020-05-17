@@ -106,6 +106,7 @@
         "leaveClubSuccess": "Pomyślnie opuszczono klub",
         "rejectAskConfirm": "Czy na pewno chcesz odrzucić tę prośbę o dołączenie?",
         "leaveConfirm": "Czy na pewno chcesz opuścić klub? Operacja jest nieodwracalna",
-        "leaveSuccess": "Pomyślnie opuszczono klub"
+        "leaveSuccess": "Pomyślnie opuszczono klub",
+        "editSuccess": "Pomyślnie zapisano"
     }
 }

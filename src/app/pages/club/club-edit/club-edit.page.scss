@@ -1,0 +1,61 @@
+.club-edit-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: calc(100% - 66px);
+    height: auto;
+    padding: 0;
+    background: #2e3b42dd;
+    color: white;
+    margin: 60px 6px 6px;
+    border-radius: 4px;
+
+    ion-row {
+        width: 100%;
+    }
+
+    .loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    ion-item {
+        color: white;
+    }
+
+    .login-logo-image {
+        width: 15%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .photo-container {
+        overflow: hidden;
+        position: relative;
+        height: calc(100vw - 1rem);
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .photo-upload-overlay {
+        width: 100%;
+        background: #2e3b42dd;
+        padding: 25px;
+        color: #ffffff;
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+    }
+}

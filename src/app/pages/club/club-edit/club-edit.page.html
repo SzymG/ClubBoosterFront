@@ -1,0 +1,61 @@
+<ion-content>
+    <ion-grid class="club-edit-grid">
+        <ng-container *ngIf="!loading; else loadingTemplate">
+            <ion-row>
+                <ion-col>
+                    <form [formGroup]="editClub" (ngSubmit)="createForm()">
+                        <ion-row>
+                            <ion-col>
+                                <ion-item color="none">
+                                    <ion-label position="stacked">{{'ClubPage.name' | translate}}
+                                    </ion-label>
+                                    <ion-input type="text" formControlName="name"></ion-input>
+                                </ion-item>
+                                <input-message [input]="editClub.get('name')"></input-message>
+                            </ion-col>
+                        </ion-row>
+
+                        <ion-row>
+                            <ion-col size="12">
+                                <ion-row class="ion-justify-content-center">
+                                    <ion-col size="12" class="photo-container ion-no-padding">
+                                        <div class="photo-upload-overlay" (click)="triggerUpload()">
+                                            <ion-icon name="camera"></ion-icon>
+                                            {{ 'ClubPage.clickToUpload' | translate }}
+                                        </div>
+                                        <img [src]="imageUrl || '/assets/img/club.png'"/>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-col>
+                        </ion-row>
+
+                        <ion-row>
+                            <ion-col>
+                                <ion-button [disabled]="!editClub.valid" expand="block" type="submit" class="ion-no-margin padding-button">
+                                    {{ "Profile.save" | translate }}
+                                </ion-button>
+                            </ion-col>
+                            <ion-col size="12">
+                                <ion-button color="dark" expand="block" class="padding-button"
+                                            [routerLink]="['/club/' + clubId]" skipLocationChange="true">
+                                    {{"ClubPage.backToClub" | translate}}
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </form>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <input hidden #imageInput type="file" (change)="onFileChanged($event)">
+                </ion-col>
+            </ion-row>
+        </ng-container>
+        <ng-template #loadingTemplate>
+            <div class="loading">
+                <ion-spinner name="lines"></ion-spinner>
+                <p>{{ 'Common.loading' | translate }}</p>
+            </div>
+        </ng-template>
+    </ion-grid>
+</ion-content>

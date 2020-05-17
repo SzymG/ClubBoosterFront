@@ -53,7 +53,7 @@
                 </ng-container>
 
                 <ng-container *ngIf="isPresident">
-                    <ion-item color="dark" detail="true" [routerLink]="['/club/edit']" skipLocationChange="true">
+                    <ion-item color="dark" detail="true" [routerLink]="['/club/' + clubId + '/edit']" skipLocationChange="true">
                         <p>{{"ClubPage.editClub" | translate}}</p>
                     </ion-item>
                 </ng-container>
