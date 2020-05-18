@@ -44,7 +44,7 @@
                     <ion-item color="dark" detail="true" (click)="showAsks()">
                         <p>{{"ClubPage.joinAsks" | translate}}</p>
                     </ion-item>
-                    <ion-item color="dark" detail="true" [routerLink]="['/club/management']" skipLocationChange="true">
+                    <ion-item color="dark" detail="true" [routerLink]="['/club/' + clubId + '/group-management']" skipLocationChange="true">
                         <p>{{"ClubPage.groupManagement" | translate}}</p>
                     </ion-item>
                     <ion-item color="dark" detail="true" [routerLink]="['/club/stats']" skipLocationChange="true">

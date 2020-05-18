@@ -1,0 +1,43 @@
+<ion-content>
+    <ion-grid class="group-management-grid">
+        <ng-container *ngIf="!loading; else loadingTemplate">
+                <ng-container *ngIf="clubGroups.length; else noGroups">
+                    <ion-item color="none" *ngFor="let group of clubGroups" class="group-item">
+                        <ion-label>{{group.name}}</ion-label>
+                        <div class="icon-container">
+                            <ion-icon color="primary" name="create" (click)="editGroup(group)"></ion-icon>
+                            <ion-icon name="trash" (click)="deleteGroup(group)"></ion-icon>
+                        </div>
+                    </ion-item>
+                </ng-container>
+                <ng-template #noGroups>
+                    <ion-row>
+                        <div class="alert-warning">
+                            {{ 'ClubPage.noGroups' | translate }}
+                        </div>
+                    </ion-row>
+                </ng-template>
+                <ion-row>
+                    <ion-col size="12">
+                        <ion-button color="dark" expand="block" class="padding-button" (click)="createGroup()">
+                            {{'ClubPage.createGroup' | translate}}
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="12">
+                        <ion-button color="dark" expand="block" class="padding-button" [routerLink]="['/club/' + clubId]"
+                                    skipLocationChange="true">
+                            {{'ClubPage.backToClub' | translate}}
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+        </ng-container>
+        <ng-template #loadingTemplate>
+            <div class="loading">
+                <ion-spinner name="lines"></ion-spinner>
+                <p>{{ 'Common.loading' | translate }}</p>
+            </div>
+        </ng-template>
+    </ion-grid>
+</ion-content>

@@ -11,6 +11,7 @@
         <ng-container *ngIf="!loading; else loadingTemplate">
             <ng-container *ngIf="this.usersToAccept && this.usersToAccept.length; else noUsersToAccept">
                 <ion-list>
+                    <h3  class="ion-text-center" style="color: white">{{"ClubPage.joinAsks" | translate}}</h3>
                     <user-to-accept *ngFor="let user of usersToAccept"
                                              [user]="user" (itemChanged)="onItemChanged($event)" (click)="showUserProfile(user)">
                     </user-to-accept>

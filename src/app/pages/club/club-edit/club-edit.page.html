@@ -1,6 +1,7 @@
 <ion-content>
     <ion-grid class="club-edit-grid">
         <ng-container *ngIf="!loading; else loadingTemplate">
+            <h3 class="ion-text-center">{{"ClubPage.editClub" | translate}}</h3>
             <ion-row>
                 <ion-col>
                     <form [formGroup]="editClub" (ngSubmit)="createForm()">

@@ -8,7 +8,7 @@
 
 <ion-content>
     <ion-grid class="add-group-grid">
-        <h3 class="ion-text-center">{{"ClubPage.groupCreating" | translate}}</h3>
+        <h3 class="ion-text-center">{{(scenario === 'edit' ? 'ClubPage.groupEdit' : "ClubPage.groupCreating") | translate}}</h3>
         <ion-row>
             <ion-col>
                 <ion-item color="none">
@@ -23,7 +23,6 @@
             <ng-container *ngFor="let user of clubUsers">
                 <div *ngIf="selectedUserIds && selectedUserIds.includes(user.id)" class="group-user">
                     <ion-img src="{{user.avatar_url || '/assets/img/user.png'}}"></ion-img>
-<!--                    TODO przejście na usera po kliknięciu-->
                     {{user.name && user.surname ? user.name + ' ' + user.surname : translateService.instant('ClubPage.anonymusUser')}}
                 </div>
             </ng-container>

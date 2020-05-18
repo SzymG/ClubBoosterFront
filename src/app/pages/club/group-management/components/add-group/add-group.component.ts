@@ -12,10 +12,13 @@ import {FormGroup} from '@angular/forms';
 })
 export class AddGroupComponent implements OnInit {
     public groupName: string;
-    public clubId: string;
     public selectedUserIds: [];
     private clubUsers: [];
     private userCheckboxes;
+
+    public clubId: string;
+    public scenario: string;
+    public groupData: any;
 
     constructor(
         private readonly modalController: ModalController,
@@ -30,10 +33,17 @@ export class AddGroupComponent implements OnInit {
     }
 
     ionViewWillEnter() {
+        console.log('scenario', this.scenario);
+        console.log('groupData', this.groupData);
         this.request.get(`clubs/${this.clubId}/members`).subscribe((response) => {
             this.clubUsers = response.filter((user) => {
                 return user.roles.length !== 0;
             });
+
+            if (this.scenario === 'edit') {
+                this.groupName = this.groupData.name;
+                this.selectedUserIds = this.groupData.members_ids;
+            }
 
             this.getUsersCheckboxes();
         });
@@ -73,13 +83,23 @@ export class AddGroupComponent implements OnInit {
             }
         };
 
-        this.request.post(`clubs/${this.clubId}/groups`, body).subscribe((response) => {
-            console.log(response);
-            if (response.data) {
-                this.toastService.presentToast(this.translateService.instant('ClubPage.groupAddSuccess'));
-                this.closeModal({status: 'success'});
-            }
-        });
+        if (this.scenario === 'edit') {
+            this.request.put(`clubs/${this.clubId}/groups/${this.groupData.id}`, body).subscribe((response) => {
+                console.log(response);
+                if (response.data) {
+                    this.toastService.presentToast(this.translateService.instant('ClubPage.groupEditSuccess'));
+                    this.closeModal({status: 'success'});
+                }
+            });
+        } else {
+            this.request.post(`clubs/${this.clubId}/groups`, body).subscribe((response) => {
+                console.log(response);
+                if (response.data) {
+                    this.toastService.presentToast(this.translateService.instant('ClubPage.groupAddSuccess'));
+                    this.closeModal({status: 'success'});
+                }
+            });
+        }
     }
 
     private getUsersCheckboxes() {

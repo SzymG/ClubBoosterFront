@@ -107,6 +107,19 @@
         "rejectAskConfirm": "Czy na pewno chcesz odrzucić tę prośbę o dołączenie?",
         "leaveConfirm": "Czy na pewno chcesz opuścić klub? Operacja jest nieodwracalna",
         "leaveSuccess": "Pomyślnie opuszczono klub",
-        "editSuccess": "Pomyślnie zapisano"
+        "editSuccess": "Pomyślnie zapisano",
+        "noGroups": "W tym klubie nie utworzono jeszcze żadnej grupy",
+        "createGroup": "Stwórz grupę",
+        "saveGroup": "Zapisz grupę",
+        "groupCreating": "Tworzenie grupy",
+        "groupEdit": "Edycja grupy",
+        "groupName": "Nazwa grupy",
+        "groupUsers": "Członkowie grupy",
+        "addUsers": "Edytuj członków",
+        "chooseUsers": "Wybierz członków grupy",
+        "groupAddSuccess": "Pomyślnie utworzono grupę",
+        "groupEditSuccess": "Pomyślnie edytowano grupę",
+        "deleteGroupConfirm": "Czy na pewno chcesz usunąć tę grupę?",
+        "deleteGroupSuccess": "Pomyślnie usunięto grupę"
     }
 }

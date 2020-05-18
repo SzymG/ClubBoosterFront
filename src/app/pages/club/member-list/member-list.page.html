@@ -2,6 +2,7 @@
     <ion-grid class="member-list-grid">
         <ng-container *ngIf="!loading; else loadingTemplate">
             <ion-list>
+                <h3 class="ion-text-center">{{"ClubPage.list" | translate}}</h3>
                 <ion-item *ngFor="let user of clubUsers" (click)="goToProfile(user)">
                     <ion-img src="{{user && user.avatar_url ? user.avatar_url : '/assets/img/user.png'}}" class="user-image"></ion-img>
                     <ion-label>{{user && user.name && user.surname ? user.name + ' ' + user.surname : ('ClubPage.anonymusUser' | translate)}}</ion-label>
