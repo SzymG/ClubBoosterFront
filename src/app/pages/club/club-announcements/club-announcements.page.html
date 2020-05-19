@@ -7,7 +7,7 @@
                         {{'ClubPage.backToClub' | translate}}
                     </ion-button>
             </ion-row>
-            <ion-row *ngFor="let announcement of clubAnnouncements" class="announcement-row swiper-cube-shadow">
+            <ion-row *ngFor="let announcement of clubAnnouncements" class="announcement-row" (click)="openAnnouncement(announcement)">
                 <ion-col>
                     <ion-icon name="paper"></ion-icon>
                     <p>{{getTitle(announcement.content)}}</p>
