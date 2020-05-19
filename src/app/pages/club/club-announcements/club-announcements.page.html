@@ -9,6 +9,9 @@
             </ion-row>
             <ion-row *ngFor="let announcement of clubAnnouncements" class="announcement-row" (click)="openAnnouncement(announcement)">
                 <ion-col>
+                    <div class="data-container ion-padding-bottom">
+                        <ion-icon name="calendar" class="ion-padding-end"></ion-icon>{{getDate(announcement)}}
+                    </div>
                     <ion-icon name="paper"></ion-icon>
                     <p>{{getTitle(announcement.content)}}</p>
                 </ion-col>

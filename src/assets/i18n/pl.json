@@ -10,7 +10,8 @@
         "loading": "Ładowanie...",
         "player": "Zawodnik",
         "coach": "Trener",
-        "president": "Prezes"
+        "president": "Prezes",
+        "author": "Autor"
     },
     "Language": {
         "chooseLanguage": "Wybierz język aplikacji",

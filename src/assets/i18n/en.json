@@ -10,7 +10,8 @@
         "loading": "Loading...",
         "player": "Player",
         "coach": "Coach",
-        "president": "President"
+        "president": "President",
+        "author": "Author"
     },
     "Language": {
         "chooseLanguage": "Choose app language",

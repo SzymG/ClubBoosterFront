@@ -49,4 +49,9 @@ export class ClubAnnouncementsPage implements OnInit {
 
         return await modal.present();
     }
+
+    getDate(announcement) {
+        const date = new Date(announcement.date_creation);
+        return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+    }
 }

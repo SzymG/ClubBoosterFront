@@ -1,3 +1,33 @@
-<p>
-  announcement works!
-</p>
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-icon name="arrow-back" (click)="closeModal()"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="announcement-grid">
+        <ng-container *ngIf="!loading; else loadingTemplate">
+            <ion-row class="ion-justify-content-end ion-align-items-center ion-padding-bottom">
+                <ion-icon name="calendar" class="ion-padding-end"></ion-icon>{{getDateCreation()}}
+            </ion-row>
+            <ion-row class="ion-justify-content-end ion-align-items-center ion-padding-bottom">
+                {{'Common.author' | translate}}: {{announcement.author_name && announcement.author_surname ? announcement.author_name + ' ' +
+                announcement.author_surname : translateService.instant('ClubPage.anonymusUser')}}
+            </ion-row>
+            <ion-row class="ion-justify-content-center ion-padding-bottom">
+                <ion-icon name="paper" style="font-size: 60px"></ion-icon>
+            </ion-row>
+            <ion-row class="ion-padding-bottom">
+                {{announcement.content}}
+            </ion-row>
+        </ng-container>
+        <ng-template #loadingTemplate>
+            <div class="loading">
+                <ion-spinner name="lines"></ion-spinner>
+                <p>{{ 'Common.loading' | translate }}</p>
+            </div>
+        </ng-template>
+    </ion-grid>
+</ion-content>
