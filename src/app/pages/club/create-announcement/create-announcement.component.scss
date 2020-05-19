@@ -7,5 +7,42 @@
     background: #2e3b42dd;
     color: white;
     border-radius: 10px;
-    margin: 0.3rem
+    margin: 0.3rem;
+
+    .description-item {
+        width: 100%;
+        margin: 8px;
+        border-radius: 4px;
+    }
+    
+    ion-list {
+        background: #222428;
+        width: 100%;
+
+        ion-spinner{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    ion-button {
+        margin-top: 1rem;
+    }
+
+    ion-row {
+        width: 100%;
+    }
+
+    .group-user {
+        display: flex;
+        align-items: center;
+
+        ion-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0.6rem 1rem;
+        }
+    }
 }

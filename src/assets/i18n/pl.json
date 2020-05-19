@@ -70,6 +70,8 @@
         "success": "Pomyślnie zaktualizowano profil"
     },
     "ClubPage": {
+        "players": "Zawodnicy",
+        "groups": "Grupy",
         "clubs": "Kluby",
         "joinClub": "Dołącz do klubu",
         "createClub": "Stwórz własny klub",
@@ -120,6 +122,10 @@
         "groupAddSuccess": "Pomyślnie utworzono grupę",
         "groupEditSuccess": "Pomyślnie edytowano grupę",
         "deleteGroupConfirm": "Czy na pewno chcesz usunąć tę grupę?",
-        "deleteGroupSuccess": "Pomyślnie usunięto grupę"
+        "deleteGroupSuccess": "Pomyślnie usunięto grupę",
+        "addAnnouncement": "Dodaj ogłoszenie",
+        "announcementContent": "Treść ogłoszenia",
+        "announcementUsers": "Wybierz do kogo jest kierowane to ogłoszenie",
+        "announcementAddSuccess": "Pomyślnie dodano ogłoszenie"
     }
 }

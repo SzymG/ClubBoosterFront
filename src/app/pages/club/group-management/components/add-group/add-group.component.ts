@@ -85,7 +85,6 @@ export class AddGroupComponent implements OnInit {
 
         if (this.scenario === 'edit') {
             this.request.put(`clubs/${this.clubId}/groups/${this.groupData.id}`, body).subscribe((response) => {
-                console.log(response);
                 if (response.data) {
                     this.toastService.presentToast(this.translateService.instant('ClubPage.groupEditSuccess'));
                     this.closeModal({status: 'success'});
@@ -93,7 +92,6 @@ export class AddGroupComponent implements OnInit {
             });
         } else {
             this.request.post(`clubs/${this.clubId}/groups`, body).subscribe((response) => {
-                console.log(response);
                 if (response.data) {
                     this.toastService.presentToast(this.translateService.instant('ClubPage.groupAddSuccess'));
                     this.closeModal({status: 'success'});

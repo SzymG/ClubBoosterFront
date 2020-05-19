@@ -78,7 +78,10 @@ export class ClubDashboardPage implements OnInit {
 
     async createAnnouncement() {
         const modal = await this.modalController.create({
-            component: CreateAnnouncementComponent
+            component: CreateAnnouncementComponent,
+            componentProps: {
+                clubId: this.clubId
+            }
         });
         return await modal.present();
     }

@@ -13,7 +13,6 @@ import {CreateEventComponent} from '../create-event/create-event.component';
 import {ClubAsksComponent} from '../club-asks/club-asks.component';
 import {UserToAcceptComponent} from '../club-asks/components/user-to-accept/user-to-accept.component';
 import {Clipboard} from '@ionic-native/clipboard/ngx';
-import {ClubProfileComponent} from '../club-profile/club-profile.component';
 import {UserProfileComponent} from '../club-asks/components/user-profile/user-profile.component';
 
 const routes: Routes = [
@@ -27,7 +26,7 @@ const routes: Routes = [
     imports: [
         CommonModule,
         FormsModule,
-        IonicModule,
+        IonicModule.forRoot(),
         RouterModule.forChild(routes),
         FullCalendarModule,
         TranslateModule,

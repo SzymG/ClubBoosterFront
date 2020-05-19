@@ -45,7 +45,8 @@ const routes: Routes = [
         path: 'club/:id/group-management',
         loadChildren: './pages/club/group-management/group-management.module#GroupManagementPageModule',
         canActivate: [AuthGuardService],
-    },
+    },  { path: 'club-announcements', loadChildren: './pages/club/club-announcements/club-announcements.module#ClubAnnouncementsPageModule' },
+
 ];
 
 @NgModule({
