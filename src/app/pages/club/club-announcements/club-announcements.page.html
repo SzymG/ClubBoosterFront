@@ -1,9 +1,24 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>club-announcements</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+    <ion-grid class="club-announcements-grid">
+        <ng-container *ngIf="!loading; else loadingTemplate">
+            <ion-row>
+                    <ion-button color="dark" expand="block" class="padding-button" [routerLink]="['/club/' + clubId]"
+                                skipLocationChange="true">
+                        {{'ClubPage.backToClub' | translate}}
+                    </ion-button>
+            </ion-row>
+            <ion-row *ngFor="let announcement of clubAnnouncements" class="announcement-row swiper-cube-shadow">
+                <ion-col>
+                    <ion-icon name="paper"></ion-icon>
+                    <p>{{getTitle(announcement.content)}}</p>
+                </ion-col>
+            </ion-row>
+        </ng-container>
+        <ng-template #loadingTemplate>
+            <div class="loading">
+                <ion-spinner name="lines"></ion-spinner>
+                <p>{{ 'Common.loading' | translate }}</p>
+            </div>
+        </ng-template>
+    </ion-grid>
 </ion-content>

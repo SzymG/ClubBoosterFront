@@ -33,7 +33,7 @@
                     </full-calendar>
                 </ion-row>
 
-                <ion-item color="dark" detail="true" [routerLink]="['/club/announcements']" skipLocationChange="true">
+                <ion-item color="dark" detail="true" [routerLink]="['/club/' + clubId + '/announcements']" skipLocationChange="true">
                     <p>{{"ClubPage.announcements" | translate}}</p>
                 </ion-item>
                 <ion-item color="dark" detail="true" [routerLink]="['/club/' + clubId + '/list']" skipLocationChange="true">
