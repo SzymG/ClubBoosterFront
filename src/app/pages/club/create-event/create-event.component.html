@@ -1,28 +1,86 @@
 <ion-header>
-  <ion-toolbar color="dark">
-    <ion-buttons slot="start">
-      <ion-icon name="arrow-back" (click)="closeModal()"></ion-icon>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-icon name="arrow-back" (click)="closeModal()"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid class="event-create-grid">
-
-    "event":
-    "name": "Warta Poznań U19 - Lech Poznań U19",
-    "members_ids": [
-    1,
-    2,
-    3
-    ],
-    "groups_ids": [
-    11,
-    12
-    ],
-    "start_date": 0,
-    "end_date": 112,
-    "symbol": "T",
-    "description": "lalala"
-  </ion-grid>
+    <ion-grid class="announcement-create-grid">
+        <h3 class="ion-text-center">{{"ClubPage.creatingEvent" | translate}}</h3>
+        <form [formGroup]="eventCreateForm" (ngSubmit)="sendForm()">
+            <ion-item color="none">
+                <ion-label position="floating">{{'ClubPage.eventName' | translate}}</ion-label>
+                <ion-input formControlName="name"></ion-input>
+            </ion-item>
+            <ion-item color="none">
+                <ion-label position="floating">{{'ClubPage.eventDescription' | translate}}</ion-label>
+                <ion-textarea rows="5" formControlName="description"></ion-textarea>
+            </ion-item>
+            <ion-item color="none">
+                <ion-label position="floating">{{'ClubPage.eventType' | translate}}</ion-label>
+                <ion-select formControlName="symbol">
+                    <ion-select-option value="M">{{'ClubPage.eventMatch' | translate}}</ion-select-option>
+                    <ion-select-option value="T">{{'ClubPage.eventTraining' | translate}}</ion-select-option>
+                    <ion-select-option value="I">{{'ClubPage.eventOther' | translate}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item color="none">
+                <ion-label position="floating">{{'ClubPage.eventStartDate' | translate}}</ion-label>
+                <ion-datetime displayFormat="D.MM.YYYY H:mm" formControlName="start_date" (ionChange)="validateDates()"></ion-datetime>
+            </ion-item>
+            <ion-item color="none">
+                <ion-label position="floating">{{'ClubPage.eventEndDate' | translate}}</ion-label>
+                <ion-datetime displayFormat="D.MM.YYYY H:mm" formControlName="end_date" (ionChange)="validateDates()"></ion-datetime>
+            </ion-item>
+            <div *ngIf="endDate.invalid" class="error">
+                <div class="ion-text-center">
+                    {{ "ClubPage.endDateSmaller" | translate }}
+                </div>
+            </div>
+            <p class="ion-text-center">{{'ClubPage.eventUsers' | translate}}</p>
+            <ion-toolbar color="dark">
+                <ion-segment value="players" (ionChange)="changeSegment($event)">
+                    <ion-segment-button value="players">
+                        {{ 'ClubPage.players' | translate }}
+                    </ion-segment-button>
+                    <ion-segment-button value="groups">
+                        {{ 'ClubPage.groups' | translate }}
+                    </ion-segment-button>
+                </ion-segment>
+            </ion-toolbar>
+            <ion-list>
+                <ion-item *ngIf="loading; else list" color="dark">
+                    <ion-spinner name="lines"></ion-spinner>
+                </ion-item>
+                <ng-template #list>
+                    <ng-container *ngIf="source === 'players'; else groupsTemplate">
+                        <ion-item color="dark" *ngFor="let user of clubUsers" class="group-user">
+                            <ion-checkbox color="primary" checked="{{selectedUsers.includes(user.id)}}"
+                                          (ionChange)="toggleUserSelected(user)"></ion-checkbox>
+                            <ion-img src="{{user.avatar_url || '/assets/img/user.png'}}"></ion-img>
+                            <ion-label>{{user.name && user.surname ? user.name + ' ' +
+                                user.surname : translateService.instant('ClubPage.anonymusUser')}}</ion-label>
+                        </ion-item>
+                    </ng-container>
+                    <ng-template #groupsTemplate>
+                        <ion-item color="dark" *ngFor="let group of clubGroups">
+                            <ion-checkbox color="primary" slot="start" checked="{{selectedGroupIds.includes(group.id)}}"
+                                          (ionChange)="toggleGroupSelected(group)"></ion-checkbox>
+                            <ion-label>{{group.name}}</ion-label>
+                        </ion-item>
+                    </ng-template>
+                </ng-template>
+            </ion-list>
+            <ion-row>
+                <ion-col class="ion-no-padding">
+                    <ion-button [disabled]="!eventCreateForm.valid || !selectedUsers.length"
+                                expand="block" class="ion-padding-top ion-no-margin padding-button" type="submit">
+                        {{ "ClubPage.addEvent" | translate }}
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </form>
+    </ion-grid>
 </ion-content>

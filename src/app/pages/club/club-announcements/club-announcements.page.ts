@@ -52,6 +52,7 @@ export class ClubAnnouncementsPage implements OnInit {
 
     getDate(announcement) {
         const date = new Date(announcement.date_creation);
+        date.setHours( date.getHours() - 2 );
         return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
     }
 }

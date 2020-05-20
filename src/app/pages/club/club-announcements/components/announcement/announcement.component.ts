@@ -38,6 +38,7 @@ export class AnnouncementComponent implements OnInit {
 
     getDateCreation() {
         const date = new Date(this.announcement.date_creation);
+        date.setHours( date.getHours() - 2 );
         return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
     }
 }

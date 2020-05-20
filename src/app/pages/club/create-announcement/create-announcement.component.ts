@@ -51,15 +51,6 @@ export class CreateAnnouncementComponent implements OnInit {
         this.modalController.dismiss();
     }
 
-    select(event, group) {
-        if (!event.target.checked) {
-            this.selectedGroupIds.push(group.id);
-        } else {
-            this.selectedGroupIds = this.selectedGroupIds.filter((e) =>  e !== group.id );
-        }
-        console.log(this.selectedGroupIds);
-    }
-
     toggleGroupSelected(group) {
         if (this.selectedGroupIds.includes(group.id)) {
             this.selectedGroupIds = this.selectedGroupIds.filter((e) => e !== group.id);

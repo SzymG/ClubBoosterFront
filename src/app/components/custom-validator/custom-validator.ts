@@ -59,8 +59,8 @@ export class CustomValidator {
     }
 
     public static compareDates(group: FormGroup) {
-        const dateStartControl = group.controls['dateStart'];
-        const dateEndControl = group.controls['dateEnd'];
+        const dateStartControl = group.value.start_date;
+        const dateEndControl = group.value.end_date;
 
         if(dateEndControl.value && (dateStartControl.value > dateEndControl.value)) {
             return {

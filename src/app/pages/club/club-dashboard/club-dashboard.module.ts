@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {Routes, RouterModule} from '@angular/router';
 
 import {IonicModule} from '@ionic/angular';
@@ -14,6 +14,7 @@ import {ClubAsksComponent} from '../club-asks/club-asks.component';
 import {UserToAcceptComponent} from '../club-asks/components/user-to-accept/user-to-accept.component';
 import {Clipboard} from '@ionic-native/clipboard/ngx';
 import {UserProfileComponent} from '../club-asks/components/user-profile/user-profile.component';
+import {ComponentsModule} from '../../../components/components.module';
 
 const routes: Routes = [
     {
@@ -30,6 +31,8 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         FullCalendarModule,
         TranslateModule,
+        ReactiveFormsModule,
+        ComponentsModule,
     ],
     providers: [
         Clipboard

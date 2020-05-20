@@ -21,19 +21,13 @@ export class EventAlertComponent implements OnInit {
 
     async present(event) {
         this.alert = await this.alertController.create({
-            header: `${event.extendedProps.description}`,
+            header: `${event.extendedProps.name}`,
             message: `${this.formatDate(event.start)}` + (event.end ? ` - ${this.formatDate(event.end)}` : ''),
             buttons: [
                 {
                     text: this.translateService.instant('Common.cancel'),
                     role: 'cancel',
                     cssClass: 'secondary'
-                }, {
-                    text: this.translateService.instant('Common.go'),
-                    handler: () => {
-                        // TODO przejście na pokazanie eventu
-                        console.log('Confirm Okay');
-                    }
                 }
             ]
         });

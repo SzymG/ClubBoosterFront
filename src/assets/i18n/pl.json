@@ -98,7 +98,7 @@
         "giveRole": "Nadaj rolę użytkownikowi",
         "clubCode": "Kod klubu",
         "anonymusUser": "Użytkownik anonimowy",
-        "tokenCopied": "Pomyślnie skopiowano token do schowka",
+        "tokenCopied": "Pomyślnie skopiowano kod do schowka",
         "list": "Członkowie klubu",
         "backToClub": "Powrót do klubu",
         "notFilled": "Nie uzupelniono",
@@ -127,6 +127,20 @@
         "addAnnouncement": "Dodaj ogłoszenie",
         "announcementContent": "Treść ogłoszenia",
         "announcementUsers": "Wybierz do kogo jest kierowane to ogłoszenie",
-        "announcementAddSuccess": "Pomyślnie dodano ogłoszenie"
+        "announcementAddSuccess": "Pomyślnie dodano ogłoszenie",
+        "eventName": "Tytuł wydarzenia",
+        "creatingAnnouncement": "Tworzenie ogłoszenia",
+        "creatingEvent": "Tworzenie wydarzenia",
+        "eventUsers": "Wybierz do kogo jest kierowane to wydarzenie",
+        "addEvent": "Dodaj wydarzenie",
+        "eventDescription": "Opis wydarzenia",
+        "eventType": "Typ wydarzenia",
+        "eventMatch": "Mecz",
+        "eventTraining": "Trening",
+        "eventOther": "Inne",
+        "eventStartDate": "Data początkowa",
+        "eventEndDate": "Data końcowa",
+        "endDateSmaller": "Data końcowa musi być późniejsza od początkowej",
+        "eventAddSuccess": "Pomyślnie dodano wydarzenie"
     }
 }

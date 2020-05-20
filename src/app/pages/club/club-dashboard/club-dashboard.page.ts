@@ -46,14 +46,14 @@ export class ClubDashboardPage implements OnInit {
         this.clubId = this.activatedRoute.snapshot.paramMap.get('id');
 
         try {
-            this.request.get('clubs/' + this.clubId).subscribe((response) => {
-                this.club = response;
-                console.log('club', response);
-            });
-
             this.request.get('clubs/' + this.clubId + '/events').subscribe((response) => {
                 console.log('club events', response);
                 this.clubEvents = response;
+            });
+
+            this.request.get('clubs/' + this.clubId).subscribe((response) => {
+                this.club = response;
+                console.log('club', response);
                 this.loading = false;
             });
 
@@ -88,8 +88,19 @@ export class ClubDashboardPage implements OnInit {
 
     async createEvent() {
         const modal = await this.modalController.create({
-            component: CreateEventComponent
+            component: CreateEventComponent,
+            componentProps: {
+                clubId: this.clubId
+            }
         });
+
+        modal.onDidDismiss().then((data: any) => {
+            console.log(data);
+            if (data.data && data.data.status) {
+                this.ionViewWillEnter();
+            }
+        });
+
         return await modal.present();
     }
 
