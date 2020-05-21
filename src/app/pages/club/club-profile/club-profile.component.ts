@@ -70,7 +70,8 @@ export class ClubProfileComponent implements OnInit {
         const modal = await this.modalController.create({
             component: MemberStatsComponent,
             componentProps: {
-                clubId: this.clubId
+                clubId: this.clubId,
+                memberId: this.memberId,
             }
         });
         return await modal.present();
