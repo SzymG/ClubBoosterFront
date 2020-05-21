@@ -48,7 +48,14 @@
                         </ion-row>
 
                         <ion-button color="dark" expand="block" size="large" type="submit" class="ion-margin-top"
-                                    [disabled]="!login.valid">{{'LoginPage.login' | translate}}</ion-button>
+                                    [disabled]="!login.valid || loading">
+                            <ng-container *ngIf="!loading; else loadingTemplate">
+                                {{'LoginPage.login' | translate}}
+                            </ng-container>
+                            <ng-template #loadingTemplate>
+                                <ion-spinner name="lines"></ion-spinner>
+                            </ng-template>
+                        </ion-button>
                     </form>
                 </ion-col>
             </ion-row>

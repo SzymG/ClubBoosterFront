@@ -17,7 +17,7 @@ export class AnnouncementComponent implements OnInit {
     constructor(
         private readonly modalController: ModalController,
         private readonly request: RequestService,
-        private readonly translateService: TranslateService,
+        public translateService: TranslateService,
     ) {
     }
 

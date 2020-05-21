@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AlertController} from '@ionic/angular';
+import {AlertController, ModalController} from '@ionic/angular';
 import {TranslateService} from '@ngx-translate/core';
+import {ClubEventComponent} from '../club-event/club-event.component';
 
 @Component({
     selector: 'app-event-alert',
@@ -13,6 +14,7 @@ export class EventAlertComponent implements OnInit {
     constructor(
         private readonly alertController: AlertController,
         private readonly translateService: TranslateService,
+        private readonly modalController: ModalController
     ) {
     }
 
@@ -21,6 +23,7 @@ export class EventAlertComponent implements OnInit {
 
     async present(event) {
         this.alert = await this.alertController.create({
+
             header: `${event.extendedProps.name}`,
             message: `${this.formatDate(event.start)}` + (event.end ? ` - ${this.formatDate(event.end)}` : ''),
             buttons: [
@@ -28,6 +31,18 @@ export class EventAlertComponent implements OnInit {
                     text: this.translateService.instant('Common.cancel'),
                     role: 'cancel',
                     cssClass: 'secondary'
+                }, {
+                    text: this.translateService.instant('Common.go'),
+                    handler: async () => {
+                        const modal = await this.modalController.create({
+                            component: ClubEventComponent,
+                            componentProps: {
+                                clubId: event.extendedProps.club_id,
+                                eventId: event.id,
+                            }
+                        });
+                        return await modal.present();
+                    }
                 }
             ]
         });

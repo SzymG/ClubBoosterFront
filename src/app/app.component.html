@@ -10,31 +10,18 @@
                 <ion-menu-toggle>
                     <ion-item color="dark" [routerLink]="['/home']" skipLocationChange="true">
                         <ion-icon name="home" slot="start"></ion-icon>
-                        <ion-label>{{"HomePage.pageName" | translate}}</ion-label>
+                        <ion-label *ngIf="userService.isAuthenticated(); else notLoggedLabel">{{"Common.profile" | translate}}</ion-label>
+                        <ng-template #notLoggedLabel>
+                            <ion-label>{{"HomePage.pageName" | translate}}</ion-label>
+                        </ng-template>
                     </ion-item>
                 </ion-menu-toggle>
-                <ion-menu-toggle>
+                <ion-menu-toggle *ngIf="userService.isAuthenticated()">
                     <ion-item color="dark" [routerLink]="['/club']" skipLocationChange="true">
                         <ion-icon name="list-box" slot="start"></ion-icon>
                         <ion-label>{{"Common.clubList" | translate}}</ion-label>
                     </ion-item>
                 </ion-menu-toggle>
-                <ion-item color="dark">
-                    <ion-icon name="heart" slot="start"></ion-icon>
-                    <ion-label>Favorites</ion-label>
-                </ion-item>
-                <ion-item color="dark">
-                    <ion-icon name="archive" slot="start"></ion-icon>
-                    <ion-label>Archived</ion-label>
-                </ion-item>
-                <ion-item color="dark">
-                    <ion-icon name="trash" slot="start"></ion-icon>
-                    <ion-label>Trash</ion-label>
-                </ion-item>
-                <ion-item color="dark">
-                    <ion-icon name="warning" slot="start"></ion-icon>
-                    <ion-label>Spam</ion-label>
-                </ion-item>
                 <ion-menu-toggle *ngIf="userService.isAuthenticated()">
                     <ion-item color="dark" (click)="userService.logout()">
                         <ion-icon name="log-out" slot="start"></ion-icon>

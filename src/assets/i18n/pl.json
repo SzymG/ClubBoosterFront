@@ -68,7 +68,8 @@
         "email": "Adres e-mail",
         "description": "Opis",
         "save": "Zapisz",
-        "success": "Pomyślnie zaktualizowano profil"
+        "success": "Pomyślnie zaktualizowano profil",
+        "failure": "Nie udało się zaktualizować profilu, spróbuj ponownie później"
     },
     "ClubPage": {
         "players": "Zawodnicy",
@@ -138,9 +139,18 @@
         "eventMatch": "Mecz",
         "eventTraining": "Trening",
         "eventOther": "Inne",
-        "eventStartDate": "Data początkowa",
-        "eventEndDate": "Data końcowa",
+        "eventStartDate": "Rozpoczęcie",
+        "eventEndDate": "Zakończenie",
         "endDateSmaller": "Data końcowa musi być późniejsza od początkowej",
-        "eventAddSuccess": "Pomyślnie dodano wydarzenie"
+        "eventAddSuccess": "Pomyślnie dodano wydarzenie",
+        "added": "Dodano",
+        "eventWillBe": "Będę!",
+        "eventUndecided": "Niezdecydowani",
+        "eventCantBe": "Nie mogę",
+        "eventTotal": "Łącznie",
+        "eventConfirmPresence": "Potwierdź obecność",
+        "eventConfirmPresenceSuccess": "Potwierdzono obecność!",
+        "eventConfirmAbsence": "Nie mogę być",
+        "eventConfirmAbsenceSuccess": "Potwierdzono brak obecności"
     }
 }

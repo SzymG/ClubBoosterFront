@@ -11,6 +11,7 @@ import {CreateEventComponent} from '../create-event/create-event.component';
 import {ClubAsksComponent} from '../club-asks/club-asks.component';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
 import {ToastService} from '../../../services/toast/toast.service';
+import {EventAlertComponent} from '../../../components/event-alert/event-alert.component';
 
 @Component({
     selector: 'app-club-dashboard',
@@ -37,6 +38,7 @@ export class ClubDashboardPage implements OnInit {
         private readonly toastService: ToastService,
         private readonly alertController: AlertController,
         private readonly navCtrl: NavController,
+        private readonly eventAlert: EventAlertComponent,
     ) { }
 
     ngOnInit() {
@@ -64,7 +66,7 @@ export class ClubDashboardPage implements OnInit {
     }
 
     eventClickHandler(event) {
-        console.log(event);
+        this.eventAlert.present(event.event);
     }
 
     get isPresident() {

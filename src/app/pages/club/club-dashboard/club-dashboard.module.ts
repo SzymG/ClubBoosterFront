@@ -15,6 +15,7 @@ import {UserToAcceptComponent} from '../club-asks/components/user-to-accept/user
 import {Clipboard} from '@ionic-native/clipboard/ngx';
 import {UserProfileComponent} from '../club-asks/components/user-profile/user-profile.component';
 import {ComponentsModule} from '../../../components/components.module';
+import {EventAlertComponent} from '../../../components/event-alert/event-alert.component';
 
 const routes: Routes = [
     {
@@ -35,7 +36,8 @@ const routes: Routes = [
         ComponentsModule,
     ],
     providers: [
-        Clipboard
+        Clipboard,
+        EventAlertComponent
     ],
     declarations: [
         ClubDashboardPage,

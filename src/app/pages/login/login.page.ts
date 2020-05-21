@@ -11,6 +11,7 @@ import {RequestService} from '../../services/request/request.service';
 })
 export class LoginPage implements OnInit {
     login: FormGroup;
+    loading: boolean;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -27,6 +28,7 @@ export class LoginPage implements OnInit {
     }
 
     logForm() {
+        this.loading = true;
         const body = {
             user: this.login.value,
         };
@@ -36,8 +38,11 @@ export class LoginPage implements OnInit {
             if (response === 'unauthorized') {
                 this.login.reset();
                 this.login.get('password').setErrors({unauthorized: true});
+                this.loading = false;
             } else if (response.jwt.length) {
-                this.userService.login(response.jwt);
+                this.userService.login(response.jwt).then(() => {
+                    this.loading = false;
+                });
             }
         });
     }

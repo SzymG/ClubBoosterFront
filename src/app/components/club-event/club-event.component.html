@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back" (click)="closeModal()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="club-event-grid">
+    <ng-container *ngIf="!loading; else loadingTemplate">
+      <ion-row class="ion-justify-content-end ion-align-items-center ion-padding-bottom">
+        {{'ClubPage.added' | translate}}: {{getDate(event.date_creation, false)}}<ion-icon name="calendar" class="ion-padding-start"></ion-icon>
+      </ion-row>
+      <ion-row class="ion-justify-content-end ion-align-items-center ion-padding-bottom">
+        {{'Common.author' | translate}}: {{event.author_name && event.author_surname ? event.author_name + ' ' +
+              event.author_surname : translateService.instant('ClubPage.anonymusUser')}}
+        <ion-icon name="person" class="ion-padding-start"></ion-icon>
+      </ion-row>
+      <ion-row class="ion-justify-content-center ion-margin-bottom icon-row"
+               [ngClass]="{'match-background': event.symbol === 'M', 'training-background': event.symbol === 'T',
+               'other-background': event.symbol === 'I'}">
+        <ion-icon name="calendar" style="font-size: 60px"></ion-icon>
+      </ion-row>
+      <ion-row class="ion-padding-bottom">
+        <h3>{{event.name}}</h3>
+      </ion-row>
+      <ion-row class="ion-padding-bottom">
+        {{event.description}}
+      </ion-row>
+      <ion-row class="ion-padding-bottom">
+        {{'ClubPage.eventStartDate' | translate}}: {{getDate(event.start_date, true)}}
+      </ion-row>
+      <ion-row class="ion-padding-bottom" *ngIf="event.end_date">
+        {{'ClubPage.eventEndDate' | translate}}: {{getDate(event.end_date, true)}}
+      </ion-row>
+      <ion-toolbar color="dark" class="presence-toolbar">
+        <ion-segment [(ngModel)]="source">
+          <ion-segment-button value="approved" class="ion-no-padding">
+            {{ 'ClubPage.eventWillBe' | translate }}
+          </ion-segment-button>
+          <ion-segment-button value="undecided" class="ion-no-padding">
+            {{ 'ClubPage.eventUndecided' | translate }}
+          </ion-segment-button>
+          <ion-segment-button value="cantBe" class="ion-no-padding">
+            {{ 'ClubPage.eventCantBe' | translate }}
+          </ion-segment-button>
+        </ion-segment>
+      </ion-toolbar>
+      <ion-list>
+        <ion-item *ngIf="playersLoading; else list" color="dark">
+          <ion-spinner name="lines"></ion-spinner>
+        </ion-item>
+        <ng-template #list>
+          <p class="ion-text-center">{{'ClubPage.eventTotal' | translate}}: {{totalBySource}}</p>
+          <ion-item color="dark" *ngFor="let user of getUsersBySource()" class="group-user">
+            <ion-img src="{{user.avatar_url || '/assets/img/user.png'}}"></ion-img>
+            <ion-label>{{user.name && user.surname ? user.name + ' ' +
+                    user.surname : translateService.instant('ClubPage.anonymusUser')}}</ion-label>
+          </ion-item>
+        </ng-template>
+      </ion-list>
+      <div class="presence-button-container">
+        <ion-button class="padding-button" (click)="confirmPresence(true)">{{"ClubPage.eventConfirmPresence" | translate}}
+          <ion-icon name="flame" class="ion-padding-start"></ion-icon></ion-button>
+        <ion-button class="padding-button" color="dark" (click)="confirmPresence(false)">{{"ClubPage.eventConfirmAbsence" | translate}}
+          <ion-icon name="sad" class="ion-padding-start"></ion-icon></ion-button>
+      </div>
+    </ng-container>
+    <ng-template #loadingTemplate>
+      <div class="loading">
+        <ion-spinner name="lines"></ion-spinner>
+        <p>{{ 'Common.loading' | translate }}</p>
+      </div>
+    </ng-template>
+  </ion-grid>
+</ion-content>

@@ -29,7 +29,7 @@
                                         <ion-icon name="camera"></ion-icon>
                                         {{ 'Profile.clickToUpload' | translate }}
                                     </div>
-                                    <img [src]="imageUrl || '/assets/img/user.png'"/>
+                                    <img [src]="imageUrl || profileForm.get('avatar_url') || '/assets/img/user.png'"/>
                                 </ion-col>
                             </ion-row>
                         </ion-col>
@@ -85,8 +85,13 @@
                         </ion-row>
                         <ion-row>
                             <ion-col>
-                                <ion-button expand="block" size="large" type="submit" class="ion-no-margin">
-                                    {{ "Profile.save" | translate }}
+                                <ion-button [disabled]="!profileForm.valid || saving" expand="block" size="large" type="submit" class="ion-no-margin">
+                                    <ng-container *ngIf="!saving; else savingTemplate">
+                                        {{ "Profile.save" | translate }}
+                                    </ng-container>
+                                    <ng-template #savingTemplate>
+                                        <ion-spinner name="lines"></ion-spinner>
+                                    </ng-template>
                                 </ion-button>
                             </ion-col>
                         </ion-row>

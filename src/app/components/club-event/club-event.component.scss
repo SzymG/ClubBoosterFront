@@ -1,0 +1,80 @@
+.club-event-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #2e3b42dd;
+    color: white;
+    border-radius: 10px;
+    margin: 0.3rem;
+    padding: 1rem;
+    min-height: calc(100% - 0.6rem);
+    height: auto;
+
+    .loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .group-user {
+        display: flex;
+        align-items: center;
+
+        ion-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0.6rem 1rem;
+        }
+    }
+
+    .icon-row {
+        border-radius: 4px;
+    }
+
+    .match-background {
+        background: linear-gradient(transparent, #4ce600);
+    }
+
+    .training-background {
+        background: linear-gradient(transparent, #0056ff);
+    }
+
+    .other-background {
+        background: linear-gradient(transparent, #ffc000);
+    }
+
+    .presence-toolbar {
+        margin-left: -1rem;
+        margin-right: -1rem;
+        width: calc(100% + 2rem);
+    }
+
+    .presence-button-container {
+        margin-left: -1rem;
+        margin-right: -1rem;
+        width: calc(100% + 2rem);
+        margin-top: 1rem;
+
+        ion-button {
+            width: 100%;
+        }
+    }
+
+    ion-list {
+        margin-left: -1rem;
+        margin-right: -1rem;
+        width: calc(100% + 2rem);
+        background: #222428;
+
+        ion-spinner {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}

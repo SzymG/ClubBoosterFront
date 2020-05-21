@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {UserService} from '../../services/user-service/user.service';
 import plLocale from '@fullcalendar/core/locales/pl';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -8,6 +8,7 @@ import {EventAlertComponent} from '../../components/event-alert/event-alert.comp
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ToastService} from '../../services/toast/toast.service';
 import {RequestService} from '../../services/request/request.service';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
     selector: 'app-profile',
@@ -25,15 +26,17 @@ export class ProfilePage {
     profile: any;
     image: any;
     imageUrl: any;
-    private profileForm: FormGroup;
+    saving: boolean;
+    profileForm: FormGroup;
 
     constructor(
         private readonly userService: UserService,
-        private readonly translateService: TranslateService,
         private readonly eventAlert: EventAlertComponent,
         private readonly formBuilder: FormBuilder,
         private readonly toastService: ToastService,
         private readonly request: RequestService,
+        private readonly http: HttpClient,
+        public translateService: TranslateService,
     ) {
         this.profileForm = this.formBuilder.group({
             name: ['', Validators.required],
@@ -68,14 +71,51 @@ export class ProfilePage {
     }
 
     async sendForm() {
-        // this.profileForm.controls.avatar_url.setValue(this.imageUrl);
-        console.log('profile to update', this.profileForm.value);
-        if (this.profileForm.valid) {
-            this.request.put('users', this.profileForm.value).subscribe((response) => {
-                console.log(response);
-                this.toastService.presentToast(this.translateService.instant('Profile.success'));
-            });
-        }
+        this.saving = true;
+        const imageStr = this.imageUrl.toString().substring(22);
+        const blobData = await this.b64toBlob(imageStr);
+        const fileName = `${new Date().getMinutes()}${this.image.name}`;
+        const testToken = 'QCuJSvgzyCAAAAAAAAAADOhIR5FIPcZHoKZpTHau2rjRTFD38uw2XXTR29ltnDYy';
+        const headers = new HttpHeaders().append('Authorization', 'Bearer ' + testToken)
+            .append('Content-Type', 'application/octet-stream')
+            .append('Dropbox-API-Arg', '{"path":"/dropbox/' + fileName + '"}');
+
+        this.http.post('https://content.dropboxapi.com/2/files/upload', blobData, { headers }).subscribe(res => {
+            this.profileForm.controls.avatar_url.setValue(fileName);
+            console.log('profile to update', this.profileForm.value);
+            if (this.profileForm.valid) {
+                this.request.put('users', this.profileForm.value).subscribe((response) => {
+                    console.log(response);
+                    this.toastService.presentToast(this.translateService.instant('Profile.success'));
+                });
+            }
+            this.saving = false;
+        }, err => {
+            console.error(err);
+            this.saving = false;
+            this.toastService.presentToast(this.translateService.instant('Profile.failure'));
+        });
+    }
+
+    b64toBlob = ( b64Data, contentType = '', sliceSize = 512 ) => {
+        return new Promise((resovle) => {
+            const byteCharacters = atob(b64Data);
+            const byteArrays = [];
+
+            for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+                const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+                const byteNumbers = new Array(slice.length);
+                for (let i = 0; i < slice.length; i++) {
+                    byteNumbers[i] = slice.charCodeAt(i);
+                }
+
+                const byteArray = new Uint8Array(byteNumbers);
+                byteArrays.push(byteArray);
+            }
+
+            resovle(new Blob(byteArrays, {type: contentType}));
+        });
     }
 
     triggerUpload() {
@@ -87,6 +127,7 @@ export class ProfilePage {
             const reader = new FileReader();
 
             this.image = $event.target.files[0];
+            console.log(this.image);
             reader.readAsDataURL($event.target.files[0]);
 
             reader.onload = async () => {
