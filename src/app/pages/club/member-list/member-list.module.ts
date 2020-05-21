@@ -8,6 +8,7 @@ import {IonicModule} from '@ionic/angular';
 import {MemberListPage} from './member-list.page';
 import {TranslateModule} from '@ngx-translate/core';
 import {ClubProfileComponent} from '../club-profile/club-profile.component';
+import {MemberStatsComponent} from './components/member-stats/member-stats.component';
 
 const routes: Routes = [
     {
@@ -24,8 +25,8 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         TranslateModule,
     ],
-    declarations: [MemberListPage, ClubProfileComponent],
-    entryComponents: [ClubProfileComponent]
+    declarations: [MemberListPage, ClubProfileComponent, MemberStatsComponent],
+    entryComponents: [ClubProfileComponent, MemberStatsComponent]
 })
 export class MemberListPageModule {
 }

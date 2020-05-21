@@ -9,6 +9,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ToastService} from '../../services/toast/toast.service';
 import {RequestService} from '../../services/request/request.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-profile',
@@ -36,6 +37,7 @@ export class ProfilePage {
         private readonly toastService: ToastService,
         private readonly request: RequestService,
         private readonly http: HttpClient,
+        private readonly router: Router,
         public translateService: TranslateService,
     ) {
         this.profileForm = this.formBuilder.group({
@@ -47,6 +49,10 @@ export class ProfilePage {
             personal_description: ['', null],
             avatar_url: [''],
         });
+
+        if (!this.userService.isAuthenticated()) {
+            this.router.navigate(['home'], {skipLocationChange: true});
+        }
     }
 
     ionViewWillEnter() {

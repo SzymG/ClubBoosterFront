@@ -151,6 +151,10 @@
         "eventConfirmPresence": "Confirm presence",
         "eventConfirmPresenceSuccess": "Confirmed presence!",
         "eventConfirmAbsence": "I can't be",
-        "eventConfirmAbsenceSuccess": "Absence confirmed"
+        "eventConfirmAbsenceSuccess": "Absence confirmed",
+        "goToStats": "See statistics",
+        "eventPresent": "Present",
+        "eventAbsent": "Absent",
+        "eventNoVote": "No vote"
     }
 }

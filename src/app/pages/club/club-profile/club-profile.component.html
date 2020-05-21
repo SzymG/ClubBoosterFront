@@ -53,6 +53,13 @@
                     </ion-item>
                 </ion-col>
             </ion-row>
+            <ion-row class="ion-justify-content-center">
+                <ion-col size="11">
+                    <ion-button expand="block" color="primary" type="button" (click)="goToStats()">
+                        {{ "ClubPage.goToStats" | translate }}
+                    </ion-button>
+                </ion-col>
+            </ion-row>
             <ion-row class="ion-justify-content-center" *ngIf="userProfile.can_remove">
                 <ion-col size="11">
                     <ion-button expand="block" color="danger" type="button" (click)="removeFromClub()">

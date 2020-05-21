@@ -152,6 +152,10 @@
         "eventConfirmPresence": "Potwierdź obecność",
         "eventConfirmPresenceSuccess": "Potwierdzono obecność!",
         "eventConfirmAbsence": "Nie mogę być",
-        "eventConfirmAbsenceSuccess": "Potwierdzono brak obecności"
+        "eventConfirmAbsenceSuccess": "Potwierdzono brak obecności",
+        "goToStats": "Zobacz statystyki",
+        "eventPresent": "Obecny",
+        "eventAbsent": "Nieobecny",
+        "eventNoVote": "Brak głosu"
     }
 }

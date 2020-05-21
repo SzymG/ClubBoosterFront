@@ -1,0 +1,26 @@
+.member-stats-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #2e3b42dd;
+    color: white;
+    border-radius: 10px;
+    margin: 0.3rem;
+    min-height: calc(100% - 0.6rem);
+    height: auto;
+
+    ion-img {
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    ion-row {
+        width: 100%;
+
+        ion-item {
+            color: white;
+            padding-right: 1rem;
+        }
+    }
+}

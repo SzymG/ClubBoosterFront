@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-icon name="arrow-back" (click)="closeModal()"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid class="member-stats-grid">
+        <h3 class="ion-padding-bottom">{{"ClubPage.stats" | translate}}</h3>
+        <canvas #barCanvasMatch></canvas>
+        {{"ClubPage.eventMatch" | translate}}
+        <canvas #barCanvasTraining></canvas>
+        {{"ClubPage.eventTraining" | translate}}
+        <canvas #barCanvasOther></canvas>
+        {{"ClubPage.eventOther" | translate}}
+    </ion-grid>
+</ion-content>

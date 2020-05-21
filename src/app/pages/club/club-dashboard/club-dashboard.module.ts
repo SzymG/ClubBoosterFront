@@ -16,6 +16,7 @@ import {Clipboard} from '@ionic-native/clipboard/ngx';
 import {UserProfileComponent} from '../club-asks/components/user-profile/user-profile.component';
 import {ComponentsModule} from '../../../components/components.module';
 import {EventAlertComponent} from '../../../components/event-alert/event-alert.component';
+import {MemberStatsComponent} from './components/member-stats/member-stats.component';
 
 const routes: Routes = [
     {
@@ -45,13 +46,13 @@ const routes: Routes = [
         CreateEventComponent,
         ClubAsksComponent,
         UserToAcceptComponent,
-        UserProfileComponent
+        UserProfileComponent,
     ],
     entryComponents: [
         CreateAnnouncementComponent,
         CreateEventComponent,
         ClubAsksComponent,
-        UserProfileComponent
+        UserProfileComponent,
     ],
 })
 export class ClubDashboardPageModule {

@@ -3,6 +3,7 @@ import {AlertController, ModalController} from '@ionic/angular';
 import {RequestService} from '../../../services/request/request.service';
 import {TranslateService} from '@ngx-translate/core';
 import {ToastService} from '../../../services/toast/toast.service';
+import {MemberStatsComponent} from '../member-list/components/member-stats/member-stats.component';
 
 @Component({
     selector: 'app-club-profile',
@@ -63,5 +64,15 @@ export class ClubProfileComponent implements OnInit {
 
         await alert.present();
 
+    }
+
+    async goToStats() {
+        const modal = await this.modalController.create({
+            component: MemberStatsComponent,
+            componentProps: {
+                clubId: this.clubId
+            }
+        });
+        return await modal.present();
     }
 }
