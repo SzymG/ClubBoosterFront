@@ -6,7 +6,7 @@
 
 <ion-content>
     <ion-grid class="login-grid">
-        <div>
+        <div *ngIf="!loading; else loadingTemplate">
             <ion-row>
                 <ion-col>
                     <ion-img src="../../assets/img/logo_small.png" class="login-logo-image"></ion-img>
@@ -32,5 +32,11 @@
                 </ion-col>
             </ion-row>
         </div>
+        <ng-template #loadingTemplate>
+            <div class="loading">
+                <ion-spinner name="lines"></ion-spinner>
+                <p>{{ 'Common.loading' | translate }}</p>
+            </div>
+        </ng-template>
     </ion-grid>
 </ion-content>

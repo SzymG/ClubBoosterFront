@@ -12,6 +12,7 @@ import {RequestService} from '../../services/request/request.service';
 })
 export class ClubPage {
     public clubs;
+    loading = true;
 
     constructor(
         private readonly userService: UserService,
@@ -48,6 +49,7 @@ export class ClubPage {
         this.request.get('clubs').subscribe((response) => {
             console.log('user clubs', response);
             this.clubs = response;
+            this.loading = false;
         });
     }
 }

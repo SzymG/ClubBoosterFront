@@ -72,7 +72,7 @@ export class ProfilePage {
 
     async sendForm() {
         this.saving = true;
-        const imageStr = this.imageUrl.toString().substring(22);
+        const imageStr = this.imageUrl.split(';base64,')[1];
         const blobData = await this.b64toBlob(imageStr);
         const fileName = `${new Date().getMinutes()}${this.image.name}`;
         const testToken = 'QCuJSvgzyCAAAAAAAAAADOhIR5FIPcZHoKZpTHau2rjRTFD38uw2XXTR29ltnDYy';

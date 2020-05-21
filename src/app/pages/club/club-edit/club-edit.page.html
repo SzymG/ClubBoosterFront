@@ -24,7 +24,7 @@
                                             <ion-icon name="camera"></ion-icon>
                                             {{ 'ClubPage.clickToUpload' | translate }}
                                         </div>
-                                        <img [src]="imageUrl || '/assets/img/club.png'"/>
+                                        <img [src]="imageUrl || editClub.get('logo_url').value || '/assets/img/club.png'"/>
                                     </ion-col>
                                 </ion-row>
                             </ion-col>
@@ -32,8 +32,13 @@
 
                         <ion-row>
                             <ion-col>
-                                <ion-button [disabled]="!editClub.valid" expand="block" type="submit" class="ion-no-margin padding-button">
-                                    {{ "Profile.save" | translate }}
+                                <ion-button [disabled]="!editClub.valid || saving" expand="block" type="submit" class="ion-no-margin padding-button">
+                                    <ng-container *ngIf="!saving; else savingTemplate">
+                                        {{ "Profile.save" | translate }}
+                                    </ng-container>
+                                    <ng-template #savingTemplate>
+                                        <ion-spinner name="lines"></ion-spinner>
+                                    </ng-template>
                                 </ion-button>
                             </ion-col>
                             <ion-col size="12">

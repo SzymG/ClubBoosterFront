@@ -29,7 +29,7 @@
                                         <ion-icon name="camera"></ion-icon>
                                         {{ 'Profile.clickToUpload' | translate }}
                                     </div>
-                                    <img [src]="imageUrl || profileForm.get('avatar_url') || '/assets/img/user.png'"/>
+                                    <img [src]="imageUrl || profileForm.get('avatar_url').value || '/assets/img/user.png'"/>
                                 </ion-col>
                             </ion-row>
                         </ion-col>

@@ -112,6 +112,7 @@
         "leaveConfirm": "Czy na pewno chcesz opuścić klub? Operacja jest nieodwracalna",
         "leaveSuccess": "Pomyślnie opuszczono klub",
         "editSuccess": "Pomyślnie zapisano",
+        "editFailure": "Nie udało się zapisać, spróbuj ponownie później",
         "noGroups": "W tym klubie nie utworzono jeszcze żadnej grupy",
         "createGroup": "Stwórz grupę",
         "saveGroup": "Zapisz grupę",
